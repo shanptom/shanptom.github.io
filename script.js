@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // About me text
     document.getElementById('about-text').textContent = 
-        "I’m a molecular biologist passionate about the microbial world. I specialize in Next-Generation Sequencing (NGS) technologies to explore microbial diversity in environmental samples. This portfolio is a personal project I created to practice JavaScript and web development.";
+        "Hi, I’m Shan — a molecular biologist with a passion for Next-Generation Sequencing (NGS)." +
+        "  I work across the end-to-end NGS workflow, from sample preparation and library construction to data analysis and interpretation."+
+        " Whether it’s clinical diagnostics or environmental genomics, I’m always exploring how sequencing technologies can solve complex problems."+ 
+        " This site is a space to share my work and experiments—both in science and in code";
     
     // Theme toggle button
     const themeBtn = document.getElementById('change-color-btn');
@@ -63,7 +66,7 @@ const blogs = [
     {
         title: "Introduction to Metabarcoding",
         url: "https://spanbauerlab.github.io/Metabarcoding/",
-        description: "AA beginner-friendly guide to processing metabarcoding datasets on high-performance computing systems"
+        description: "A beginner-friendly guide to processing metabarcoding datasets on high-performance computing systems"
     },
     {
         title: "Scientific Writing using Markdown and Zotero",
@@ -110,7 +113,7 @@ if (contactSection && contactForm) {
         I am actively seeking Field Application Scientist and Technical Support roles in the Next-Generation Sequencing sector. 
         If you have an opening—or would like to discuss how I can support your team—please don’t hesitate to reach out.
         <br><br>
-        I also offer expert NGS data-analysis services and hands-on Basic R workshops tailored to your group’s needs.
+        I also offer expert NGS data-analysis services and hands-on Basic R workshops tailored to your needs.
     `;
 
     // Resume button
