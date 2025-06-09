@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Hi, I’m Shan — a molecular biologist with a passion for Next-Generation Sequencing (NGS)." +
         "  I work across the end-to-end NGS workflow, from sample preparation and library construction to data analysis and interpretation."+
         " Whether it’s clinical diagnostics or environmental genomics, I’m always exploring how sequencing technologies can solve complex problems."+ 
-        " This site is a space to share my work and experiments—both in science and in code";
+        " This site is a space to share my work and experiments—both in science and in code.";
     
     // Theme toggle button
     const themeBtn = document.getElementById('change-color-btn');
@@ -129,6 +129,27 @@ if (contactSection && contactForm) {
     contactSection.insertBefore(contactIntro, contactForm);
     contactSection.insertBefore(resumeBtnDiv, contactForm);
 }
+
+const socialLinksDiv = document.createElement('div');
+socialLinksDiv.className = 'social-links';
+socialLinksDiv.innerHTML = `
+  <a href="https://linkedin.com/in/shan-thomas-719756aa" target="_blank" aria-label="LinkedIn">
+    <img src="assets/linkedin.svg" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/shanptom" target="_blank" aria-label="GitHub">
+    <img src="assets/github.svg" alt="GitHub" />
+  </a>
+  <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" aria-label="Scholar">
+    <img src="assets/google-scholar.svg" alt="Scholar" />
+  </a>
+  <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" aria-label="ResearchGate">
+    <img src="assets/researchgate.svg" alt="ResearchGate" />
+  </a>
+
+`;
+contactSection.insertBefore(socialLinksDiv, contactForm);
+
+
     
     
     // Smooth scrolling for navigation

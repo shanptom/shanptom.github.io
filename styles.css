@@ -290,3 +290,28 @@ body.dark-theme #change-color-btn {
     line-height: 1.5;
     text-align: center;
   }  
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  
+
+
+  .social-links a img {
+    width: 24px;     /* Adjust size here */
+    height: 24px;
+    transition: transform 0.3s;
+  }
+  
+  .social-links a:hover img {
+    transform: scale(1.2);
+  }
+
+  body {
+    cursor: url('assets/micropipette.png'), auto;
+  }
+  
