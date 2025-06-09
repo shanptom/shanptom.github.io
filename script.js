@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ["16S rRNA", "18S rRNA", "DNA-RNA Extractions", "Library Preparations"]
         },
         {
-            title: "NGS",
-            description: "Proficient with multiple NGS platforms for targeted, whole-exome, and whole-genome sequencing applications.",
-            technologies: ["Illumina", "Oxford Nanopore", "MGI", "WES", "WGS"]
+            title: "Molecular Diagnostics",
+            description: "Experienced in applying NGS and PCR-based assays in clinical diagnostics, with a focus on workflow implementation, automation, and technical troubleshooting in CAP-accredited labs.",
+            technologies: ["Illumina", "Oxford Nanopore", "MGI", "Library Prep & QC-WES,WGS,Amplicon"]
         },
         {
             title: "Bioinformatics",
@@ -98,6 +98,34 @@ blogs.forEach(blog => {
     blogSection.appendChild(blogCard);
 });
 
+// Add contact intro paragraph and resume button
+const contactSection = document.querySelector('#contact');
+const contactForm = document.getElementById('contact-form');
+
+if (contactSection && contactForm) {
+    // Intro paragraph
+    const contactIntro = document.createElement('p');
+    contactIntro.className = 'contact-intro';
+    contactIntro.innerHTML = `
+        I am actively seeking Field Application Scientist and Technical Support roles in the Next-Generation Sequencing sector. 
+        If you have an opening—or would like to discuss how I can support your team—please don’t hesitate to reach out.
+        <br><br>
+        I also offer expert NGS data-analysis services and hands-on Basic R workshops tailored to your group’s needs.
+    `;
+
+    // Resume button
+    const resumeBtnDiv = document.createElement('div');
+    resumeBtnDiv.className = 'resume-download';
+    resumeBtnDiv.innerHTML = `
+        <button onclick="window.location.href='https://shantom.netlify.app/resume.pdf'">
+          My Resume
+        </button>
+    `;
+
+    // Insert both elements in correct order
+    contactSection.insertBefore(contactIntro, contactForm);
+    contactSection.insertBefore(resumeBtnDiv, contactForm);
+}
     
     
     // Smooth scrolling for navigation
