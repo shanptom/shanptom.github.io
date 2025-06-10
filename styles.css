@@ -12,7 +12,7 @@ body {
 
 
 header {
-    background: #35424a;
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -51,7 +51,7 @@ section {
 footer {
     text-align: center;
     padding: 20px;
-    background: #35424a;
+    background: rgba(0, 0, 0, 0.3);
     color: white;
 }
 
@@ -126,12 +126,12 @@ form {
 
 /* Dark theme */
 body.dark-theme {
-    background-color: #222;
-    color: #f4f4f4;
+    background-color: #180026;
+    color: #80ffdb;
 }
 
 body.dark-theme section {
-    background: #333;
+    background: #180026;
 }
 
 /* Theme toggle button styles */
