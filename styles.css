@@ -316,4 +316,9 @@ body.dark-theme #change-color-btn {
   body {
     cursor: url('assets/micropipette.png'), auto;
   }
+
+  .project-card h3 {
+  color: #007acc;
+  font-weight: bold;
+}
   

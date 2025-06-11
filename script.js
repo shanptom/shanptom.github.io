@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // About me text
     document.getElementById('about-text').textContent = 
         "Hi, I’m Shan — a molecular biologist with a passion for Next-Generation Sequencing (NGS)." +
-        "  I work across the end-to-end NGS workflow, from sample preparation and library construction to data analysis and interpretation."+
-        " Whether it’s clinical diagnostics or environmental genomics, I’m always exploring how sequencing technologies can solve complex problems."+ 
+        "  I work across the end-to-end NGS workflow, from nucleic acid isolation and library preparation to data analysis and interpretation."+
+        " Whether it’s molecular diagnostics or environmental genomics, I’m always exploring how sequencing technologies can solve complex problems."+ 
         " This site is a space to share my work and experiments—both in science and in code.";
     
     // Theme toggle button
