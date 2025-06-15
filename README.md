@@ -1,4 +1,4 @@
-# Shan Thomas – Portfolio
+# Portfolio
 
 This is my personal portfolio site, built from scratch using HTML, CSS, and JavaScript as a way to learn and explore web development hands-on.
 
