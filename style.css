@@ -213,7 +213,7 @@ border: 2px solid white;
 
 
 .snapshot {
-  margin: 20px auto;
+  margin: 20px auto 20px auto;;
   padding: 24px 32px;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
@@ -244,9 +244,11 @@ border: 2px solid white;
 }
 
 .card-section {
-  margin: 60px 0 0 240px;
+  margin:  0 auto ;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center
+  align-items: center;
   gap: 20px;
   max-width: 1200px;
   animation: fadeIn 1.5s ease-in-out 0.5s both;
