@@ -247,8 +247,7 @@ border: 2px solid white;
   margin:  0 auto ;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center
-  align-items: center;
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   animation: fadeIn 1.5s ease-in-out 0.5s both;
