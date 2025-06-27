@@ -2,77 +2,903 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shan Thomas | Molecular Biologist</title>
   <link rel="icon" href="assets/dna.png" type="image/png">
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for animations and unique elements */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .scroll-indicator {
+      transition: transform 0.3s ease;
+    }
+    .scroll-indicator:hover {
+      transform: translateY(5px);
+    }
+    .nav-link.active {
+      @apply text-purple-600 border-b-2 border-purple-600;
+    }
+    #home {
+      backdrop-filter: blur(2px);
+    }
+  </style>
 </head>
 
-<body class="home-page">
-  <div class="sidebar">
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="about.html"><i class="fas fa-user"></i> About Me</a></li>
-      <li><a href="timeline.html"><i class="fas fa-briefcase"></i> Career Journey</a></li>
-      <li><a href="gallery.html"><i class="fas fa-images"></i> Projects</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
-    </ul>
-    <div class="social-icons">
-      <a href="https://github.com/shanptom" target="_blank">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/shan-thomas-719756aa" target="_blank">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank">
-        <i class="fa-brands fa-researchgate"></i>
-      </a>
-      <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank">
-        <i class="fa-brands fa-google"></i>
-      </a>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 bg-gray-100 bg-opacity-90 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#home" class="text-2xl font-bold text-orange-600">Shan<span class="text-gray-700"> Thomas</span></a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link active text-gray-700 hover:text-orange-600 transition-colors duration-200 pb-1">Home</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-orange-600 transition-colors duration-200 pb-1">About</a>
+          <a href="#career" class="nav-link text-gray-700 hover:text-orange-600 transition-colors duration-200 pb-1">Career</a>
+          <a href="#projects" class="nav-link text-gray-700 hover:text-orange-600 transition-colors duration-200 pb-1">Projects</a>
+          <a href="#contact" class="nav-link text-gray-700 hover:text-orange-600 transition-colors duration-200 pb-1">Contact</a>
+        </div>
+        <!-- Dark Mode Toggle for Desktop -->
+        <div class="hidden md:flex items-center">
+          <button id="dark-mode-toggle-desktop" class="text-gray-700 hover:text-orange-600 focus:outline-none p-2 rounded-full bg-gray-200" title="Toggle Dark Mode">
+            <i class="fas fa-moon text-xl" id="moon-icon-desktop"></i>
+            <i class="fas fa-sun text-xl hidden" id="sun-icon-desktop"></i>
+          </button>
+        </div>
+        <!-- Mobile menu button (hamburger) -->
+        <div class="md:hidden flex items-center space-x-4">
+          <button id="dark-mode-toggle-mobile" class="text-gray-700 hover:text-orange-600 focus:outline-none p-2 rounded-full bg-gray-200" title="Toggle Dark Mode">
+            <i class="fas fa-moon text-xl" id="moon-icon-mobile"></i>
+            <i class="fas fa-sun text-xl hidden" id="sun-icon-mobile"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-gray-700 hover:text-orange-600 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="burger-menu">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="close-menu">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-100">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600">Home</a>
+        <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600">About</a>
+        <a href="#career" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600">Career</a>
+        <a href="#projects" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600">Projects</a>
+        <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="pt-20 pb-16 md:pt-24 md:pb-20 h-screen relative">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/bg.png'); filter: blur(2px); transform: scale(1.05); z-index: 1;"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col md:flex-row items-center justify-between h-full">
+      <div class="md:w-1/2 text-left mt-16 md:mt-0">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-orange-600 mb-4 fade-in [text-shadow:_-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white,1px_1px_0_white]">Shan Thomas</h1>
+        <p class="text-xl md:text-2xl text-purple-600 mb-8 fade-in">Molecular Biologist | NGS Specialist | Data Scientist</p>
+        <a href="#about" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 fade-in">Learn More</a>
+      </div>
+      <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 fade-in">
+        <img src="assets/photo.png" alt="Shan Thomas" class="max-h-96 rounded-lg shadow-lg object-cover">
+      </div>
+      <div class="mt-12 scroll-indicator fade-in md:absolute md:bottom-20 md:left-1/2 md:transform md:-translate-x-1/2">
+        <a href="#about" class="text-gray-600 hover:text-orange-600">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 rounded-t-3xl z-5" style="background: transparent;"></div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 md:py-24 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">About Me</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">A dedicated professional with expertise in Next-Generation Sequencing (NGS) and microbial ecology.</p>
+      </div>
+      <div class="flex flex-col md:flex-row items-start justify-between gap-x-16">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 fade-in">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">My Expertise</h3>
+          <p class="text-gray-700 mb-4">With hands-on experience across the full NGS workflow—from precise library preparation and sequencing (Illumina, Nanopore) to data analysis using SLURM pipelines and R—I approach each step with a methodical, problem-solving mindset.</p>
+          <p class="text-gray-700 mb-6">My focus is on making molecular insights accurate, reproducible, and meaningful. Whether troubleshooting workflows or optimizing protocols, I aim to bring clarity and efficiency to every stage of the process.</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-gray-200 p-4 rounded-lg shadow w-full sm:w-40">
+              <i class="fas fa-dna text-orange-600 text-2xl mb-2"></i>
+              <h4 class="text-gray-800 font-semibold">NGS Techniques</h4>
+              <p class="text-gray-700 text-sm">End-to-end sequencing solutions.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow w-full sm:w-40">
+              <i class="fas fa-bacteria text-orange-600 text-2xl mb-2"></i>
+              <h4 class="text-gray-800 font-semibold">Microbial Ecology</h4>
+              <p class="text-gray-700 text-sm">Insights into microbial communities.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow w-full sm:w-40">
+              <i class="fas fa-vial text-orange-600 text-2xl mb-2"></i>
+              <h4 class="text-gray-800 font-semibold">Bioinformatics</h4>
+              <p class="text-gray-700 text-sm">Decoding complex biological data.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow w-full sm:w-40">
+              <i class="fas fa-cogs text-orange-600 text-2xl mb-2"></i>
+              <h4 class="text-gray-800 font-semibold">Workflow Automation</h4>
+              <p class="text-gray-700 text-sm">Streamlined research processes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 fade-in">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Skills Snapshot</h3>
+          <div class="space-y-6">
+            <div class="bg-gray-200 p-4 rounded-lg shadow">
+              <h4 class="text-lg font-medium text-orange-600 mb-2">Wet Lab Skills</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">Nucleic Acid Isolation</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 100%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">100%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">PCR</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 95%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">95%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">NGS</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 85%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">85%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">Sanger Sequencing</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 100%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow">
+              <h4 class="text-lg font-medium text-orange-600 mb-2">Dry Lab Skills</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">Primer/gBlock Designing</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 90%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">90%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">Variant Analysis-Sanger</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 90%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">90%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">QIIME2</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 75%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">75%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">DADA2</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 80%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">80%</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg shadow">
+              <h4 class="text-lg font-medium text-orange-600 mb-2">Programming & Data Analysis Languages</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">R</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 85%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">85%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">HTML</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 70%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">70%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">Shell</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 65%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">65%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm w-40">CSS</span>
+                  <div class="w-full bg-gray-400 rounded-full h-2.5">
+                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 60%"></div>
+                  </div>
+                  <span class="text-gray-700 text-xs ml-2">60%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Journey Section -->
+  <section id="career" class="py-16 md:py-24 bg-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">Career Journey</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">A timeline of my professional and educational milestones.</p>
+      </div>
+      <div class="relative max-w-3xl mx-auto border-l-2 border-gray-400 pl-8 fade-in">
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">PhD in Biology</h2>
+            <h3 class="text-lg text-gray-700 mb-2">University of Toledo | 2022–Present</h3>
+            <p class="text-gray-700 mb-3">Ohio, USA</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Microbial ecology, metabarcoding, ML</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>SLURM / HPC</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">Technical Sales Specialist</h2>
+            <h3 class="text-lg text-gray-700 mb-2">Specialized Scientific Solutions | 2020–2021</h3>
+            <p class="text-gray-700 mb-3">Riyadh, Saudi Arabia (Remote)</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>MGI, Illumina: Technical Sales</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Customer Support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">Assistant Manager, Molecular Biology</h2>
+            <h3 class="text-lg text-gray-700 mb-2">LifeCell International | 2020</h3>
+            <p class="text-gray-700 mb-3">Chennai, India</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Lab management</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Workflow automation</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Amplicon, WES, WGS: Library Prep</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">Research Associate</h2>
+            <h3 class="text-lg text-gray-700 mb-2">MedGenome Labs | 2017–2020</h3>
+            <p class="text-gray-700 mb-3">Bangalore, India</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>DNA sequencing: Sanger, NGS</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Illumina instrument: handling and maintenance</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>PCR/qPCR</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>LIMS, Workflow optimization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">Researcher</h2>
+            <h3 class="text-lg text-gray-700 mb-2">Geobiotechnology Lab | 2015–2017</h3>
+            <p class="text-gray-700 mb-3">Trichy, India</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Soil microbial ecology, aDNA Metabarcoding</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>DNA extraction, PCR</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">Senior Research Fellow</h2>
+            <h3 class="text-lg text-gray-700 mb-2">Indian Agricultural Research Institute–ITCC | 2013–2015</h3>
+            <p class="text-gray-700 mb-3">New Delhi, India</p>
+            <ul class="list-none pl-0 text-gray-700 text-sm space-y-1">
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Microbiome analysis at Indian Type Culture Collection</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>PCR, Barcoding, Fungal Molecular Taxonomy</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-orange-600 mr-2 mt-1"></i>
+                <span>Entomology: Metabarcoding</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry relative mb-10">
+          <div class="bg-gray-300 p-5 rounded-lg shadow">
+            <h2 class="text-xl font-semibold text-orange-600 mb-2">MSc Biotechnology</h2>
+            <h3 class="text-lg text-gray-700 mb-2">Bharathidasan University</h3>
+            <p class="text-gray-700 mb-3">Trichy, India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 md:py-24 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-600 mb-4">Projects & Publications</h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">Explore some of the work I've done and contributions to scientific literature.</p>
+      </div>
+      <div class="mb-12 fade-in">
+        <h3 class="text-2xl font-semibold text-gray-100 mb-6 text-center">Projects</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
+            <h4 class="text-purple-600 mb-3 font-medium"><a href="https://shanptom.shinyapps.io/metapix/" target="_blank" class="hover:underline">Microbiome Dashboard</a></h4>
+            <p class="text-gray-300 text-sm">A Shiny dashboard to explore diversity, ordination, and taxa distribution from metabarcoding data.</p>
+          </div>
+          <div class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
+            <h4 class="text-purple-600 mb-3 font-medium"><a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:underline">Introduction to Metabarcoding</a></h4>
+            <p class="text-gray-300 text-sm">A beginner-friendly guide to processing metabarcoding datasets on high-performance computing systems.</p>
+          </div>
+          <div class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
+            <h4 class="text-purple-600 mb-3 font-medium"><a href="https://shanptom.github.io/mdZotero/" target="_blank" class="hover:underline">Writing using Markdown and Zotero</a></h4>
+            <p class="text-gray-300 text-sm">A workflow to write and cite scientific articles using Markdown with Zotero integration for reference management.</p>
+          </div>
+          <div class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
+            <h4 class="text-purple-600 mb-3 font-medium"><a href="https://shanptom.github.io/GitIntro/" target="_blank" class="hover:underline">Beginners guide to Git and GitHub</a></h4>
+            <p class="text-gray-300 text-sm">A quick start guide to Git and GitHub, including step-by-step instructions to integrate version control into RStudio.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <h3 class="text-2xl font-semibold text-gray-100 mb-6 text-center">Publications</h3>
+        <ul class="space-y-6 text-left">
+          <li class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow">
+            <p class="text-gray-300"><strong>Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., Goswami, K., Dev, M., Jaiswal, M. K., Kumaresan, A., & Sadasivam, S. K. (2018). <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity</em>. <em>Geomicrobiology Journal</em>, <strong>35</strong>(9), 798–803. <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="text-purple-600 hover:underline">https://doi.org/10.1080/01490451.2018.1474507</a></p>
+          </li>
+          <li class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow">
+            <p class="text-gray-300"><strong>Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., Kumaresan, A., & Sadasivam, S. K. (2019). <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems</em>. <em>Microbiological Research</em>, <strong>226</strong>, 65–73. <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="text-purple-600 hover:underline">https://doi.org/10.1016/j.micres.2019.06.001</a></p>
+          </li>
+          <li class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow">
+            <p class="text-gray-300">Machado-Silva, F., Weintraub, M., Ward, N. D., Doro, K. O., Regier, P. J., Ehosioke, S., <strong>Thomas, S. P.,</strong> Peixoto, R. B., … Myers-Pigg, A. N. (2023). <em>Groundwater redox dynamics across the terrestrial-aquatic interface of Lake Erie coastal ecosystems</em>. <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2023.06.12.544684" target="_blank" class="text-purple-600 hover:underline">https://doi.org/10.1101/2023.06.12.544684</a></p>
+          </li>
+          <li class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow">
+            <p class="text-gray-300">Ehosioke, S. Adebayo, M. B., Bailey, V. L., Peixoto, R. B., Emmanuel, E. D., Machado-Silva, F., Regier, P. J., Spanbauer, T., <strong>Thomas, S. P.</strong>, Ward, N. D., Weintraub, M. N., & Doro, K. O. (2024). <em>Geophysical methods reveal the soil architecture and subsurface stratigraphic heterogeneities across land-lake interfaces along Lake Erie</em>. <em>Journal of Soils and Sediments</em>, <strong>24</strong>, 2215–2236. <a href="https://doi.org/10.1007/s11368-024-03787-w" target="_blank" class="text-purple-600 hover:underline">https://doi.org/10.1007/s11368-024-03787-w</a></p>
+          </li>
+          <li class="bg-slate-700 border border-slate-600 rounded-xl p-5 shadow">
+            <p class="text-gray-300">Kamil, D., Prameeladevi, T., Ganesh, S., Prabhakaran, N., Nareshkumar, R., & <strong>Thomas, S. P.</strong> (2017). <em>Green synthesis of silver nanoparticles by entomopathogenic fungus Beauveria bassiana and their bioefficacy against mustard aphid (Lipaphis erysimi Kalt.)</em>. <em>Indian Journal of Experimental Biology</em>, <strong>55</strong>(8), 555–561. <a href="https://www.researchgate.net/publication/318921647_Green_synthesis_of_silver_nanoparticles_by_entomopathogenic_fungus_Beauveria_bassiana_and_their_bioefficacy_against_mustard_aphid_Lipaphis_erysimi_Kalt" target="_blank" class="text-purple-600 hover:underline">ResearchGate link</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 md:py-24 bg-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-600 mb-4">Get in Touch</h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">I'm open to opportunities and collaborations in the field of Next-Generation Sequencing (NGS) and beyond.</p>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between gap-12 fade-in">
+        <div class="w-full md:w-1/2">
+          <h3 class="text-2xl font-semibold text-gray-100 mb-6">Contact Me</h3>
+          <p class="text-gray-300 mb-4">I am actively seeking opportunities as a Field Application Scientist or in Technical Support within the Next-Generation Sequencing (NGS) sector. If you have an opening—or would like to explore how I can contribute to your team—please feel free to get in touch.</p>
+          <p class="text-gray-300 mb-8">Additionally, I offer professional NGS data analysis services and hands-on Basic R workshops, tailored to suit research labs, academic institutions, or individual learning goals.</p>
+          <div class="flex space-x-6">
+            <a href="https://github.com/shanptom" target="_blank" class="text-gray-400 hover:text-purple-600 transition-transform duration-200 transform hover:scale-110">
+              <i class="fa-brands fa-github text-2xl"></i>
+            </a>
+            <a href="https://linkedin.com/in/shan-thomas-719756aa" target="_blank" class="text-gray-400 hover:text-purple-600 transition-transform duration-200 transform hover:scale-110">
+              <i class="fa-brands fa-linkedin text-2xl"></i>
+            </a>
+            <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="text-gray-400 hover:text-purple-600 transition-transform duration-200 transform hover:scale-110">
+              <i class="fa-brands fa-researchgate text-2xl"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="text-gray-400 hover:text-purple-600 transition-transform duration-200 transform hover:scale-110">
+              <i class="fa-brands fa-google text-2xl"></i>
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-2xl font-semibold text-gray-100 mb-6">Send a Message</h3>
+          <form id="contact-form" action="https://formspree.io/f/xblygkvj" method="POST" class="space-y-5">
+            <div class="flex flex-col">
+              <label for="email" class="mb-2 text-purple-600">Your Email</label>
+              <input type="email" id="email" name="email" required class="p-3 bg-slate-600 border border-slate-500 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+            </div>
+            <div class="flex flex-col">
+              <label for="message" class="mb-2 text-purple-600">Your Message</label>
+              <textarea id="message" name="message" rows="5" required class="p-3 bg-slate-600 border border-slate-500 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+            </div>
+            <button type="submit" class="block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credit Line -->
+  <div class="text-center py-4 bg-slate-900 text-gray-400">
+    <p>This site layout was created and coded by <a href="https://cline.bot/" target="_blank" class="text-purple-600 hover:underline">Cline</a>. A previous version of this site, created manually, can be accessed <a href="old_version/index.html" class="text-purple-600 hover:underline">here</a>.</p>
   </div>
 
-<div class="intro-wrapper"> 
-  <div class="hero">
-    <h1 class="typewriter">Hello, I'm Shan.</h1>
-    <p>Molecular Biologist | NGS Specialist | Data Explorer</p>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-slate-900 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-400">© 2025 Shan Thomas. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <div class="snapshot position-1">
-    <h2>I work across the full NGS workflow</h2>
-    <p>With hands-on experience across the full NGS workflow—from precise library preparation and 
-      sequencing (Illumina, Nanopore) to data analysis using SLURM pipelines and R—I approach each step 
-      with a methodical, problem-solving mindset. My focus is on making molecular insights accurate, 
-      reproducible, and meaningful. Whether troubleshooting workflows or optimizing protocols, 
-      I aim to bring clarity and efficiency to every stage of the process.
-      I made this site for fun while learning HTML/CSS/JS! <a href="old_version/index.html" target="_blank">A previous version of this site is available 
-        at GitHub</a>. <strong> Below are my areas of interest.</strong> </p>
-  </div>
+  <!-- JavaScript for navigation, scrolling, and dark mode -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 60,
+              behavior: 'smooth'
+            });
+            // Update active class for nav links
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+          } else {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector('.nav-link[href="#home"]').classList.add('active');
+          }
+        }
+        // Close mobile menu if open
+        const menu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('mobile-menu-button');
+        const burgerMenuSvg = document.getElementById('burger-menu');
+        const closeMenuSvg = document.getElementById('close-menu');
+        if (menu.classList.contains('block')) {
+          menu.classList.remove('block');
+          menu.classList.add('hidden');
+          burgerMenuSvg.classList.remove('hidden');
+          closeMenuSvg.classList.add('hidden');
+        }
+      });
+    });
 
-  <div class="card-section">
-    <div class="card">
-      <i class="fas fa-dna"></i>
-      <h3>NGS Techniques</h3>
-      <p>End-to-end next-generation sequencing solutions for Environmental and Health Applications.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-bacteria"></i>
-      <h3>Microbial Ecology</h3>
-      <p>Insights into microbial communities and their roles in diverse environments.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-vial"></i>
-      <h3>Bioinformatics</h3>
-      <p>Advanced computational analysis to decode and interpret complex biological data.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-cogs"></i>
-      <h3>Workflow Automation</h3>
-      <p>Streamlined processes to increase efficiency and reproducibility in research.</p>
-    </div>
-  </div>
-</div> 
+    // Toggle mobile menu
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      const burgerMenuSvg = document.getElementById('burger-menu');
+      const closeMenuSvg = document.getElementById('close-menu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('block');
+        burgerMenuSvg.classList.add('hidden');
+        closeMenuSvg.classList.remove('hidden');
+      } else {
+        menu.classList.remove('block');
+        menu.classList.add('hidden');
+        burgerMenuSvg.classList.remove('hidden');
+        closeMenuSvg.classList.add('hidden');
+      }
+    });
 
+    // Update active nav link based on scroll position
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let current = '#home';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = '#' + section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Dark Mode Toggle Functionality
+    function toggleDarkMode() {
+      const body = document.body;
+      const isDarkMode = body.classList.toggle('dark-mode');
+      
+      // Update icons for both desktop and mobile toggles
+      const moonIcons = [document.getElementById('moon-icon-desktop'), document.getElementById('moon-icon-mobile')];
+      const sunIcons = [document.getElementById('sun-icon-desktop'), document.getElementById('sun-icon-mobile')];
+      
+      moonIcons.forEach(icon => {
+        if (icon) {
+          icon.classList.toggle('hidden', isDarkMode);
+        }
+      });
+      sunIcons.forEach(icon => {
+        if (icon) {
+          icon.classList.toggle('hidden', !isDarkMode);
+        }
+      });
+      
+      // Save preference to localStorage
+      localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+      
+      // Apply dark mode styles
+      if (isDarkMode) {
+        body.classList.remove('bg-white', 'text-gray-800');
+        body.classList.add('bg-gray-900', 'text-white');
+        document.querySelectorAll('section').forEach(section => {
+          if (section.id === 'home') return;
+          if (section.classList.contains('bg-gray-100')) {
+            section.classList.remove('bg-gray-100');
+            section.classList.add('bg-gray-900');
+          } else if (section.classList.contains('bg-gray-200')) {
+            section.classList.remove('bg-gray-200');
+            section.classList.add('bg-gray-800');
+          }
+        });
+        // Update navigation bar for dark mode
+        document.querySelector('nav').classList.remove('bg-gray-100');
+        document.querySelector('nav').classList.add('bg-gray-900');
+        document.querySelector('#mobile-menu').classList.remove('bg-gray-100');
+        document.querySelector('#mobile-menu').classList.add('bg-gray-900');
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('text-gray-700', 'hover:text-orange-600');
+          link.classList.add('text-gray-300', 'hover:text-purple-600');
+        });
+        document.querySelectorAll('#dark-mode-toggle-desktop, #dark-mode-toggle-mobile').forEach(btn => {
+          btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:text-orange-600');
+          btn.classList.add('bg-gray-700', 'text-gray-300', 'hover:text-purple-600');
+        });
+        document.querySelector('#mobile-menu-button').classList.remove('text-gray-700', 'hover:text-orange-600');
+        document.querySelector('#mobile-menu-button').classList.add('text-gray-300', 'hover:text-purple-600');
+        // Update other elements for dark mode
+        document.querySelectorAll('.bg-gray-200').forEach(element => {
+          element.classList.remove('bg-gray-200');
+          element.classList.add('bg-gray-800');
+        });
+        document.querySelectorAll('.bg-gray-300').forEach(element => {
+          element.classList.remove('bg-gray-300');
+          element.classList.add('bg-gray-700');
+        });
+        document.querySelectorAll('.bg-gray-100').forEach(element => {
+          element.classList.remove('bg-gray-100');
+          element.classList.add('bg-gray-900');
+        });
+        document.querySelectorAll('.text-gray-700').forEach(element => {
+          element.classList.remove('text-gray-700');
+          element.classList.add('text-gray-200');
+        });
+        document.querySelectorAll('.text-gray-800').forEach(element => {
+          element.classList.remove('text-gray-800');
+          element.classList.add('text-gray-100');
+        });
+        document.querySelectorAll('.text-gray-600').forEach(element => {
+          element.classList.remove('text-gray-600');
+          element.classList.add('text-gray-300');
+        });
+        document.querySelectorAll('.bg-gray-400').forEach(element => {
+          element.classList.remove('bg-gray-400');
+          element.classList.add('bg-gray-700');
+        });
+        document.querySelectorAll('.border-gray-400').forEach(element => {
+          element.classList.remove('border-gray-400');
+          element.classList.add('border-gray-600');
+        });
+        document.querySelectorAll('.text-orange-600').forEach(element => {
+          element.classList.remove('text-orange-600');
+          element.classList.add('text-purple-600');
+        });
+        document.querySelectorAll('.bg-orange-500').forEach(element => {
+          element.classList.remove('bg-orange-500');
+          element.classList.add('bg-purple-500');
+        });
+        document.querySelectorAll('.hover:bg-orange-600').forEach(element => {
+          element.classList.remove('hover:bg-orange-600');
+          element.classList.add('hover:bg-purple-600');
+        });
+        document.querySelectorAll('.hover:text-orange-600').forEach(element => {
+          element.classList.remove('hover:text-orange-600');
+          element.classList.add('hover:text-purple-600');
+        });
+        document.querySelectorAll('.border-orange-600').forEach(element => {
+          element.classList.remove('border-orange-600');
+          element.classList.add('border-purple-600');
+        });
+        document.querySelectorAll('.focus:ring-orange-500').forEach(element => {
+          element.classList.remove('focus:ring-orange-500');
+          element.classList.add('focus:ring-purple-500');
+        });
+      } else {
+        body.classList.remove('bg-gray-900', 'text-white');
+        body.classList.add('bg-white', 'text-gray-800');
+        document.querySelectorAll('section').forEach(section => {
+          if (section.id === 'home') return;
+          if (section.classList.contains('bg-gray-900')) {
+            section.classList.remove('bg-gray-900');
+            section.classList.add('bg-gray-100');
+          } else if (section.classList.contains('bg-gray-800')) {
+            section.classList.remove('bg-gray-800');
+            section.classList.add('bg-gray-200');
+          }
+        });
+        // Update navigation bar for light mode
+        document.querySelector('nav').classList.remove('bg-gray-900');
+        document.querySelector('nav').classList.add('bg-gray-100');
+        document.querySelector('#mobile-menu').classList.remove('bg-gray-900');
+        document.querySelector('#mobile-menu').classList.add('bg-gray-100');
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('text-gray-300', 'hover:text-purple-600');
+          link.classList.add('text-gray-700', 'hover:text-orange-600');
+        });
+        document.querySelectorAll('#dark-mode-toggle-desktop, #dark-mode-toggle-mobile').forEach(btn => {
+          btn.classList.remove('bg-gray-700', 'text-gray-300', 'hover:text-purple-600');
+          btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:text-orange-600');
+        });
+        document.querySelector('#mobile-menu-button').classList.remove('text-gray-300', 'hover:text-purple-600');
+        document.querySelector('#mobile-menu-button').classList.add('text-gray-700', 'hover:text-orange-600');
+        // Update other elements for light mode
+        document.querySelectorAll('.bg-gray-800').forEach(element => {
+          element.classList.remove('bg-gray-800');
+          element.classList.add('bg-gray-200');
+        });
+        document.querySelectorAll('.bg-gray-700').forEach(element => {
+          element.classList.remove('bg-gray-700');
+          element.classList.add('bg-gray-300');
+        });
+        document.querySelectorAll('.bg-gray-900').forEach(element => {
+          element.classList.remove('bg-gray-900');
+          element.classList.add('bg-gray-100');
+        });
+        document.querySelectorAll('.text-gray-200').forEach(element => {
+          element.classList.remove('text-gray-200');
+          element.classList.add('text-gray-700');
+        });
+        document.querySelectorAll('.text-gray-100').forEach(element => {
+          element.classList.remove('text-gray-100');
+          element.classList.add('text-gray-800');
+        });
+        document.querySelectorAll('.text-gray-300').forEach(element => {
+          element.classList.remove('text-gray-300');
+          element.classList.add('text-gray-600');
+        });
+        document.querySelectorAll('.bg-gray-700').forEach(element => {
+          element.classList.remove('bg-gray-700');
+          element.classList.add('bg-gray-400');
+        });
+        document.querySelectorAll('.border-gray-600').forEach(element => {
+          element.classList.remove('border-gray-600');
+          element.classList.add('border-gray-400');
+        });
+        document.querySelectorAll('.text-purple-600').forEach(element => {
+          element.classList.remove('text-purple-600');
+          element.classList.add('text-orange-600');
+        });
+        document.querySelectorAll('.bg-purple-500').forEach(element => {
+          element.classList.remove('bg-purple-500');
+          element.classList.add('bg-orange-500');
+        });
+        document.querySelectorAll('.hover:bg-purple-600').forEach(element => {
+          element.classList.remove('hover:bg-purple-600');
+          element.classList.add('hover:bg-orange-600');
+        });
+        document.querySelectorAll('.hover:text-purple-600').forEach(element => {
+          element.classList.remove('hover:text-purple-600');
+          element.classList.add('hover:text-orange-600');
+        });
+        document.querySelectorAll('.border-purple-600').forEach(element => {
+          element.classList.remove('border-purple-600');
+          element.classList.add('border-orange-600');
+        });
+        document.querySelectorAll('.focus:ring-purple-500').forEach(element => {
+          element.classList.remove('focus:ring-purple-500');
+          element.classList.add('focus:ring-orange-500');
+        });
+      }
+    }
+
+    // Check for saved dark mode preference on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedDarkMode = localStorage.getItem('darkMode');
+      if (savedDarkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        // Update icons for both desktop and mobile toggles
+        const moonIcons = [document.getElementById('moon-icon-desktop'), document.getElementById('moon-icon-mobile')];
+        const sunIcons = [document.getElementById('sun-icon-desktop'), document.getElementById('sun-icon-mobile')];
+        moonIcons.forEach(icon => {
+          if (icon) icon.classList.add('hidden');
+        });
+        sunIcons.forEach(icon => {
+          if (icon) icon.classList.remove('hidden');
+        });
+        // Apply dark mode styles
+        document.body.classList.remove('bg-white', 'text-gray-800');
+        document.body.classList.add('bg-gray-900', 'text-white');
+        document.querySelectorAll('section').forEach(section => {
+          if (section.id === 'home') return;
+          if (section.classList.contains('bg-gray-100')) {
+            section.classList.remove('bg-gray-100');
+            section.classList.add('bg-gray-900');
+          } else if (section.classList.contains('bg-gray-200')) {
+            section.classList.remove('bg-gray-200');
+            section.classList.add('bg-gray-800');
+          }
+        });
+        document.querySelectorAll('.bg-gray-200').forEach(element => {
+          element.classList.remove('bg-gray-200');
+          element.classList.add('bg-gray-800');
+        });
+        document.querySelectorAll('.bg-gray-300').forEach(element => {
+          element.classList.remove('bg-gray-300');
+          element.classList.add('bg-gray-700');
+        });
+        document.querySelectorAll('.text-gray-700').forEach(element => {
+          element.classList.remove('text-gray-700');
+          element.classList.add('text-gray-200');
+        });
+        document.querySelectorAll('.text-gray-600').forEach(element => {
+          element.classList.remove('text-gray-600');
+          element.classList.add('text-gray-300');
+        });
+        document.querySelectorAll('.bg-gray-400').forEach(element => {
+          element.classList.remove('bg-gray-400');
+          element.classList.add('bg-gray-700');
+        });
+        document.querySelectorAll('.text-orange-600').forEach(element => {
+          element.classList.remove('text-orange-600');
+          element.classList.add('text-purple-600');
+        });
+        document.querySelectorAll('.bg-orange-500').forEach(element => {
+          element.classList.remove('bg-orange-500');
+          element.classList.add('bg-purple-500');
+        });
+        document.querySelectorAll('.hover:bg-orange-600').forEach(element => {
+          element.classList.remove('hover:bg-orange-600');
+          element.classList.add('hover:bg-purple-600');
+        });
+        document.querySelectorAll('.hover:text-orange-600').forEach(element => {
+          element.classList.remove('hover:text-orange-600');
+          element.classList.add('hover:text-purple-600');
+        });
+        document.querySelectorAll('.border-orange-600').forEach(element => {
+          element.classList.remove('border-orange-600');
+          element.classList.add('border-purple-600');
+        });
+      } else {
+        // Set light mode by default with orange theme
+        document.body.classList.remove('bg-slate-800', 'text-gray-100');
+        document.body.classList.add('bg-white', 'text-gray-800');
+        document.querySelectorAll('section').forEach(section => {
+          if (section.id === 'home') return;
+          if (section.classList.contains('bg-slate-800')) {
+            section.classList.remove('bg-slate-800');
+            section.classList.add('bg-gray-100');
+          } else if (section.classList.contains('bg-slate-700')) {
+            section.classList.remove('bg-slate-700');
+            section.classList.add('bg-gray-200');
+          }
+        });
+        document.querySelectorAll('.bg-slate-700').forEach(element => {
+          element.classList.remove('bg-slate-700');
+          element.classList.add('bg-gray-200');
+        });
+        document.querySelectorAll('.bg-slate-600').forEach(element => {
+          element.classList.remove('bg-slate-600');
+          element.classList.add('bg-gray-300');
+        });
+        document.querySelectorAll('.text-gray-300').forEach(element => {
+          element.classList.remove('text-gray-300');
+          element.classList.add('text-gray-700');
+        });
+        document.querySelectorAll('.text-gray-400').forEach(element => {
+          element.classList.remove('text-gray-400');
+          element.classList.add('text-gray-600');
+        });
+        document.querySelectorAll('.bg-gray-600').forEach(element => {
+          element.classList.remove('bg-gray-600');
+          element.classList.add('bg-gray-400');
+        });
+        document.querySelectorAll('.text-purple-600').forEach(element => {
+          element.classList.remove('text-purple-600');
+          element.classList.add('text-orange-600');
+        });
+        document.querySelectorAll('.bg-purple-500').forEach(element => {
+          element.classList.remove('bg-purple-500');
+          element.classList.add('bg-orange-500');
+        });
+        document.querySelectorAll('.hover:bg-purple-600').forEach(element => {
+          element.classList.remove('hover:bg-purple-600');
+          element.classList.add('hover:bg-orange-600');
+        });
+        document.querySelectorAll('.hover:text-purple-600').forEach(element => {
+          element.classList.remove('hover:text-purple-600');
+          element.classList.add('hover:text-orange-600');
+        });
+        document.querySelectorAll('.border-purple-600').forEach(element => {
+          element.classList.remove('border-purple-600');
+          element.classList.add('border-orange-600');
+        });
+      }
+    });
+
+    // Attach toggle function to both desktop and mobile buttons
+    const desktopToggle = document.getElementById('dark-mode-toggle-desktop');
+    const mobileToggle = document.getElementById('dark-mode-toggle-mobile');
+    if (desktopToggle) {
+      desktopToggle.addEventListener('click', toggleDarkMode);
+    }
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', toggleDarkMode);
+    }
+  </script>
 </body>
 </html>

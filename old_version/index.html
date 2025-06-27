@@ -1,84 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shan Thomas</title>
-    <link rel="icon" href="assets/dna.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="icon" href="assets/dna.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>Decoding Life, One base at a Time</h1>
-        <nav>
-            <ul id="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Experience</a></li>
-                <li><a href="#blogs">Blogs</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="theme-toggle-container">
-            <label class="switch">
-              <input type="checkbox" id="change-color-btn">
-              <span class="slider">
-                <span class="icon sun">☀️</span>
-                <span class="icon moon">🌙</span>
-              </span>
-            </label>
-          </div>
-          
-    </header>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p id="about-text">Loading...</p>
-        </section>
+<body class="home-page">
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> About Me</a></li>
+      <li><a href="timeline.html"><i class="fas fa-briefcase"></i> Career Journey</a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> Projects</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="https://github.com/shanptom" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/shan-thomas-719756aa" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank">
+        <i class="fa-brands fa-researchgate"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank">
+        <i class="fa-brands fa-google"></i>
+      </a>
+    </div>
+  </div>
 
-        <section id="projects">
-            <h2>Experience</h2>
-            <div class="projects-container"></div>
-        </section>
+<div class="intro-wrapper"> 
+  <div class="hero">
+    <h1 class="typewriter">Hello, I'm Shan.</h1>
+    <p>Molecular Biologist | NGS Specialist | Data Explorer</p>
+  </div>
 
-        <section id="blogs">
-            <h2>Blogs</h2>
-            <div class="projects-container"></div>
-        </section>
+  <div class="snapshot position-1">
+    <h2>I work across the full NGS workflow</h2>
+    <p>With hands-on experience across the full NGS workflow—from precise library preparation and 
+      sequencing (Illumina, Nanopore) to data analysis using SLURM pipelines and R—I approach each step 
+      with a methodical, problem-solving mindset. My focus is on making molecular insights accurate, 
+      reproducible, and meaningful. Whether troubleshooting workflows or optimizing protocols, 
+      I aim to bring clarity and efficiency to every stage of the process.
+      I made this site for fun while learning HTML/CSS/JS! <a href="old_version/index.html" target="_blank">A previous version of this site is available 
+        at GitHub</a>. <strong> Below are my areas of interest.</strong> </p>
+  </div>
 
-        <section id="contact">
-            <h2>Get in touch</h2>          
-           
-            <form id="contact-form" action="https://formspree.io/f/xblygkvj" method="POST">
-                <div class="form-group">
-                  <label for="email">Your email:</label>
-                  <input type="email" id="email" name="email" required>
-                </div>
-              
-                <div class="form-group">
-                  <label for="message">Your message:</label>
-                  <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-              
-                <button type="submit">Send</button>
-              </form>
-              
-        </section>
-    </main>
+  <div class="card-section">
+    <div class="card">
+      <i class="fas fa-dna"></i>
+      <h3>NGS Techniques</h3>
+      <p>End-to-end next-generation sequencing solutions for Environmental and Health Applications.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-bacteria"></i>
+      <h3>Microbial Ecology</h3>
+      <p>Insights into microbial communities and their roles in diverse environments.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-vial"></i>
+      <h3>Bioinformatics</h3>
+      <p>Advanced computational analysis to decode and interpret complex biological data.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-cogs"></i>
+      <h3>Workflow Automation</h3>
+      <p>Streamlined processes to increase efficiency and reproducibility in research.</p>
+    </div>
+  </div>
+</div> 
 
-    <section id="versions">
-        <h2>Past Versions</h2>
-        <div class="version-buttons">
-          <a href="https://shantom.netlify.app/" target="_blank" class="version-btn">v1</a>
-          <a href="indexv2.html" target="_blank" class="version-btn">v2</a>
-          <a href="indexv3.html" target="_blank" class="version-btn">v3</a>
-        </div>
-      </section>
-
-    <footer>
-        <p>&copy; <span id="current-year">2024</span> Shan Thomas</p>
-    </footer>
- 
-    <script src="script.js"></script>
 </body>
 </html>

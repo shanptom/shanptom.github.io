@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shan Thomas</title>
+    <link rel="icon" href="assets/dna.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Decoding Life, One base at a Time</h1>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Experience</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="theme-toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="change-color-btn">
+              <span class="slider">
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+              </span>
+            </label>
+          </div>
+          
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p id="about-text">Loading...</p>
+        </section>
+
+        <section id="projects">
+            <h2>Experience</h2>
+            <div class="projects-container"></div>
+        </section>
+
+        <section id="blogs">
+            <h2>Blogs</h2>
+            <div class="projects-container"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in touch</h2>          
+           
+            <form id="contact-form" action="https://formspree.io/f/xblygkvj" method="POST">
+                <div class="form-group">
+                  <label for="email">Your email:</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="message">Your message:</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+              
+                <button type="submit">Send</button>
+              </form>
+              
+        </section>
+    </main>
+
+    <section id="versions">
+        <h2>Past Versions</h2>
+        <div class="version-buttons">
+          <a href="https://shantom.netlify.app/" target="_blank" class="version-btn">v1</a>
+          <a href="indexv2.html" target="_blank" class="version-btn">v2</a>
+          <a href="indexv3.html" target="_blank" class="version-btn">v3</a>
+        </div>
+      </section>
+
+    <footer>
+        <p>&copy; <span id="current-year">2024</span> Shan Thomas</p>
+    </footer>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
