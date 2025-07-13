@@ -78,7 +78,7 @@ This is a static website with no build process. Development workflow:
 - Smooth scrolling to sections with offset for fixed header
 
 ### Form Integration
-- Formspree endpoint: `https://formspree.io/f/xblygkvj`
+- Formspree endpoint
 - Client-side form validation
 - Accessible form design with proper labels
 
