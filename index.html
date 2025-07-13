@@ -28,6 +28,18 @@
     #home {
       backdrop-filter: blur(2px);
     }
+    .parallax-container {
+      height: 500px;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    .parallax-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.2s ease-out;
+    }
   </style>
 </head>
 
@@ -92,7 +104,9 @@
         <a href="#about" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 fade-in">Learn More</a>
       </div>
       <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 fade-in">
-        <img src="assets/photo.png" alt="Shan Thomas" class="max-h-96 rounded-lg shadow-lg object-cover">
+        <div class="parallax-container">
+          <img src="assets/photo.png" alt="Shan Thomas" class="parallax-image">
+        </div>
       </div>
     <div class="absolute bottom-0 left-0 right-0 h-16 rounded-t-3xl z-5" style="background: transparent;"></div>
   </section>
@@ -392,6 +406,10 @@
             <p class="text-gray-700 text-sm">A Shiny dashboard to explore diversity, ordination, and taxa distribution from metabarcoding data.</p>
           </div>
           <div class="bg-gray-200 border border-gray-400 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
+            <h4 class="text-orange-600 mb-3 font-medium"><a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:underline">CodeSparkR</a></h4>
+            <p class="text-gray-700 text-sm"> A lightweight R package that connects the R console to over 400+ large language models via OpenRouter—including both free and paid models. Designed for developers and researchers, it brings AI-assisted coding directly into the R workflow.</p>
+          </div>
+          <div class="bg-gray-200 border border-gray-400 rounded-xl p-5 shadow hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-2">
             <h4 class="text-orange-600 mb-3 font-medium"><a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:underline">Introduction to Metabarcoding</a></h4>
             <p class="text-gray-700 text-sm">A beginner-friendly guide to processing metabarcoding datasets on high-performance computing systems.</p>
           </div>
@@ -656,11 +674,11 @@
           element.classList.remove('bg-orange-500');
           element.classList.add('bg-purple-500');
         });
-        document.querySelectorAll('.hover:bg-orange-600').forEach(element => {
+        document.querySelectorAll('.hover\\:bg-orange-600').forEach(element => {
           element.classList.remove('hover:bg-orange-600');
           element.classList.add('hover:bg-purple-600');
         });
-        document.querySelectorAll('.hover:text-orange-600').forEach(element => {
+        document.querySelectorAll('.hover\\:text-orange-600').forEach(element => {
           element.classList.remove('hover:text-orange-600');
           element.classList.add('hover:text-purple-600');
         });
@@ -668,7 +686,7 @@
           element.classList.remove('border-orange-600');
           element.classList.add('border-purple-600');
         });
-        document.querySelectorAll('.focus:ring-orange-500').forEach(element => {
+        document.querySelectorAll('.focus\\:ring-orange-500').forEach(element => {
           element.classList.remove('focus:ring-orange-500');
           element.classList.add('focus:ring-purple-500');
         });
@@ -741,11 +759,11 @@
           element.classList.remove('bg-purple-500');
           element.classList.add('bg-orange-500');
         });
-        document.querySelectorAll('.hover:bg-purple-600').forEach(element => {
+        document.querySelectorAll('.hover\\:bg-purple-600').forEach(element => {
           element.classList.remove('hover:bg-purple-600');
           element.classList.add('hover:bg-orange-600');
         });
-        document.querySelectorAll('.hover:text-purple-600').forEach(element => {
+        document.querySelectorAll('.hover\\:text-purple-600').forEach(element => {
           element.classList.remove('hover:text-purple-600');
           element.classList.add('hover:text-orange-600');
         });
@@ -753,7 +771,7 @@
           element.classList.remove('border-purple-600');
           element.classList.add('border-orange-600');
         });
-        document.querySelectorAll('.focus:ring-purple-500').forEach(element => {
+        document.querySelectorAll('.focus\\:ring-purple-500').forEach(element => {
           element.classList.remove('focus:ring-purple-500');
           element.classList.add('focus:ring-orange-500');
         });
@@ -815,11 +833,11 @@
           element.classList.remove('bg-orange-500');
           element.classList.add('bg-purple-500');
         });
-        document.querySelectorAll('.hover:bg-orange-600').forEach(element => {
+        document.querySelectorAll('.hover\\:bg-orange-600').forEach(element => {
           element.classList.remove('hover:bg-orange-600');
           element.classList.add('hover:bg-purple-600');
         });
-        document.querySelectorAll('.hover:text-orange-600').forEach(element => {
+        document.querySelectorAll('.hover\\:text-orange-600').forEach(element => {
           element.classList.remove('hover:text-orange-600');
           element.classList.add('hover:text-purple-600');
         });
@@ -869,11 +887,11 @@
           element.classList.remove('bg-purple-500');
           element.classList.add('bg-orange-500');
         });
-        document.querySelectorAll('.hover:bg-purple-600').forEach(element => {
+        document.querySelectorAll('.hover\\:bg-purple-600').forEach(element => {
           element.classList.remove('hover:bg-purple-600');
           element.classList.add('hover:bg-orange-600');
         });
-        document.querySelectorAll('.hover:text-purple-600').forEach(element => {
+        document.querySelectorAll('.hover\\:text-purple-600').forEach(element => {
           element.classList.remove('hover:text-purple-600');
           element.classList.add('hover:text-orange-600');
         });
@@ -893,6 +911,15 @@
     if (mobileToggle) {
       mobileToggle.addEventListener('click', toggleDarkMode);
     }
+
+    // Parallax effect for the photo
+    document.addEventListener('scroll', function() {
+      const parallaxImage = document.querySelector('.parallax-image');
+      if (parallaxImage) {
+        const scrollPosition = window.pageYOffset;
+        parallaxImage.style.transform = 'translateY(' + scrollPosition * 0.3 + 'px)';
+      }
+    });
   </script>
 </body>
 </html>
