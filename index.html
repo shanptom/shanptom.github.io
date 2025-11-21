@@ -6,7 +6,7 @@
   <meta name="description" content="Portfolio of Shan Thomas, showcasing skills in NGS, microbial ecology, and bioinformatics.">
   <meta name="author" content="Shan Thomas">
   <meta name="keywords" content="NGS, Next-Generation Sequencing, Microbial Ecology, Bioinformatics, QIIME2, DADA2, Illumina, Nanopore, Molecular Biology, Data Analysis, R Programming, Metabarcoding, 16S rRNA, Microbiome Analysis, HPC, SLURM, DNA Sequencing, PCR">
-  <meta name="theme-color" content="#f97316">
+  <meta name="theme-color" content="#1a1a1a">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://shanptom.github.io/">
   <meta property="og:title" content="Shan Thomas | NGS | Microbial Ecology">
@@ -30,14 +30,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
     :root {
-      --primary: #FF6B35;
-      --secondary: #A855F7;
-      --tertiary: #06B6D4;
-      --dark: #0A0F1C;
-      --light: #F8FAFC;
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #0ea5e9;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-secondary: #f8fafc;
     }
 
     * {
@@ -47,272 +50,302 @@
     }
 
     body {
-      font-family: 'Space Grotesk', sans-serif;
-      overflow-x: hidden;
-      background: var(--light);
-      color: var(--dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
 
     .mono {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
     }
 
-    /* Smooth Scroll */
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    /* Smooth scroll */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Custom Scrollbar */
+    /* Custom scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #e2e8f0;
+      background: var(--bg-secondary);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--primary), var(--secondary));
-      border-radius: 10px;
+      background: var(--secondary);
+      border-radius: 3px;
     }
 
-    /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
     }
 
-    /* Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Navigation */
+    nav {
+      transition: all 0.3s ease;
     }
 
-    .glass-dark {
-      background: rgba(10, 15, 28, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .nav-link {
+      position: relative;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    /* Organic Blob Shapes */
-    .blob {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      animation: morph 8s ease-in-out infinite;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
     }
 
-    @keyframes morph {
-      0%, 100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      }
-      25% {
-        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-      }
-      50% {
-        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-      }
-      75% {
-        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-      }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent);
     }
 
-    /* DNA Helix SVG Animation */
-    .dna-helix {
-      animation: rotate 20s linear infinite;
+    .nav-link.active::after {
+      width: 100%;
     }
 
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Floating Animation */
-    .float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* Fade In Animations */
-    .fade-in-up {
+    /* Subtle fade-in */
+    .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s ease forwards;
     }
 
-    @keyframes fadeInUp {
+    @keyframes fadeIn {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* Gradient Background */
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Card styles */
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.2s ease;
     }
 
-    /* Card Hover Effects */
-    .card-hover {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
-    .card-hover:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* Skill bars - clean minimal design */
+    .skill-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 0.5rem;
     }
 
-    /* Bento Grid */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 3px;
+      transition: width 1s ease;
     }
 
-    .bento-item {
-      min-height: 200px;
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
     }
 
-    .bento-item.large {
-      grid-column: span 2;
-      grid-row: span 2;
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
     }
 
-    .bento-item.wide {
-      grid-column: span 2;
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
     }
 
-    .bento-item.tall {
-      grid-row: span 2;
-    }
-
-    /* Custom Timeline */
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -8px;
-      top: 0;
-      width: 16px;
-      height: 16px;
+      left: -2.25rem;
+      top: 0.5rem;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border: 3px solid white;
-      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+      background: var(--bg);
+      border: 2px solid var(--accent);
     }
 
-    /* Skill Visualization */
-    .skill-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: flex;
+    .timeline-item.current::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+    }
+
+    /* Project grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accent elements */
+    .accent-line {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Links */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: default;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      cursor: pointer;
     }
 
-    .skill-circle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
     }
 
-    /* Navigation Active State */
-    .nav-link {
-      position: relative;
-      transition: color 0.3s ease;
+    .btn-primary:hover {
+      background: var(--secondary);
+      border-color: var(--secondary);
+      transform: translateY(-1px);
     }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      transition: width 0.3s ease;
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
 
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
     }
 
-    /* Dark Mode Styles */
+    /* Dark mode */
     body.dark-mode {
-      background: var(--dark);
-      color: var(--light);
+      --primary: #f8fafc;
+      --secondary: #e2e8f0;
+      --accent: #38bdf8;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --border: #334155;
+      --bg: #0f172a;
+      --bg-secondary: #1e293b;
     }
 
-    body.dark-mode .glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    body.dark-mode .card-bg {
-      background: #1a1f35;
-    }
-
-    /* Mobile Responsiveness */
+    /* Responsive */
     @media (max-width: 768px) {
-      .bento-item.large,
-      .bento-item.wide,
-      .bento-item.tall {
-        grid-column: span 1;
-        grid-row: span 1;
-      }
-
-      .skill-circle {
-        width: 100px;
-        height: 100px;
-        font-size: 0.75rem;
+      .project-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* Particle Background */
-    .particles {
-      position: absolute;
+    /* Section spacing */
+    section {
+      padding: 5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 0;
+      }
+    }
+
+    /* Image styling */
+    .profile-image {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    /* Divider */
+    .divider {
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-      top: 0;
-      left: 0;
-      z-index: 0;
+      height: 1px;
+      background: var(--border);
+      margin: 3rem 0;
     }
 
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(168, 85, 247, 0.3);
-      border-radius: 50%;
-      animation: particle-float 15s infinite ease-in-out;
+    /* Stats counter */
+    .stat {
+      text-align: center;
+      padding: 1.5rem;
     }
 
-    @keyframes particle-float {
-      0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(100px);
-        opacity: 0;
-      }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
   </style>
   <script type="application/ld+json">
@@ -345,242 +378,254 @@
   gtag('config', 'G-NHNTM7BE72');
 </script>
 
-<body class="antialiased">
-
-  <!-- Floating DNA Decoration -->
-  <div class="fixed top-20 right-10 opacity-10 pointer-events-none dna-helix hidden lg:block">
-    <svg width="100" height="200" viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 0 Q50 50 20 100 Q50 150 20 200" stroke="#A855F7" stroke-width="3" fill="none"/>
-      <path d="M80 0 Q50 50 80 100 Q50 150 80 200" stroke="#FF6B35" stroke-width="3" fill="none"/>
-      <line x1="20" y1="25" x2="80" y2="25" stroke="#06B6D4" stroke-width="2"/>
-      <line x1="20" y1="75" x2="80" y2="75" stroke="#06B6D4" stroke-width="2"/>
-      <line x1="20" y1="125" x2="80" y2="125" stroke="#06B6D4" stroke-width="2"/>
-      <line x1="20" y1="175" x2="80" y2="175" stroke="#06B6D4" stroke-width="2"/>
-    </svg>
-  </div>
+<body>
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50" style="background: rgba(255, 255, 255, 0.8);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center h-16">
-        <a href="#home" class="text-2xl font-bold">
-          <span class="gradient-text">Shan</span><span class="text-gray-800 dark:text-white">Thomas</span>
-        </a>
+        <a href="#home" class="font-semibold text-lg">Shan Thomas</a>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="nav-link active text-gray-700 hover:text-purple-600">Home</a>
-          <a href="#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
-          <a href="#career" class="nav-link text-gray-700 hover:text-purple-600">Career</a>
-          <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600">Projects</a>
-          <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
 
-          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
-            <i class="fas fa-moon text-lg" id="theme-icon"></i>
+          <button id="theme-toggle" class="p-2 hover:bg-gray-100 rounded-md transition-colors">
+            <i class="fas fa-moon text-sm" id="theme-icon"></i>
           </button>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile menu button -->
         <button id="mobile-menu-btn" class="md:hidden p-2">
-          <i class="fas fa-bars text-xl"></i>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden glass border-t">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#home" class="block nav-link text-gray-700 hover:text-purple-600 py-2">Home</a>
-        <a href="#about" class="block nav-link text-gray-700 hover:text-purple-600 py-2">About</a>
-        <a href="#career" class="block nav-link text-gray-700 hover:text-purple-600 py-2">Career</a>
-        <a href="#projects" class="block nav-link text-gray-700 hover:text-purple-600 py-2">Projects</a>
-        <a href="#contact" class="block nav-link text-gray-700 hover:text-purple-600 py-2">Contact</a>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <a href="#home" class="block py-2 nav-link">Home</a>
+        <a href="#about" class="block py-2 nav-link">About</a>
+        <a href="#experience" class="block py-2 nav-link">Experience</a>
+        <a href="#projects" class="block py-2 nav-link">Projects</a>
+        <a href="#contact" class="block py-2 nav-link">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-    <!-- Animated Background -->
-    <div class="absolute inset-0 -z-10">
-      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-50 via-orange-50 to-cyan-50"></div>
-      <div class="blob absolute top-20 left-10 w-72 h-72 bg-purple-300 opacity-20 blur-3xl"></div>
-      <div class="blob absolute bottom-20 right-10 w-96 h-96 bg-orange-300 opacity-20 blur-3xl" style="animation-delay: 2s;"></div>
-      <div class="blob absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-300 opacity-20 blur-3xl" style="animation-delay: 4s;"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Text Content -->
-      <div class="space-y-8 fade-in-up">
-        <div class="space-y-4">
-          <p class="mono text-sm text-purple-600 font-semibold tracking-wider uppercase">Molecular Biologist</p>
-          <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
-            <span class="gradient-text">Shan</span><br/>
-            <span class="text-gray-900">Thomas</span>
+  <section id="home" class="pt-32 pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-12 items-center">
+        <div class="md:col-span-2 fade-in">
+          <div class="mb-6">
+            <span class="mono text-sm text-gray-500 tracking-wide">MOLECULAR BIOLOGIST / NGS SPECIALIST</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            Shan Thomas
           </h1>
-          <div class="h-1 w-32 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
+          <div class="accent-line mb-6"></div>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+            Bridging laboratory expertise with computational analysis. Specializing in Next-Generation
+            Sequencing workflows, microbial ecology, and high-performance data analysis.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-envelope"></i>
+              Get in Touch
+            </a>
+            <a href="#projects" class="btn btn-outline">
+              <i class="fas fa-flask"></i>
+              View Projects
+            </a>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="https://github.com/shanptom" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://linkedin.com/in/shanptom" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+              <i class="fab fa-researchgate text-xl"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+              <i class="fab fa-google text-xl"></i>
+            </a>
+          </div>
         </div>
 
-        <p class="text-xl text-gray-600 leading-relaxed max-w-xl">
-          NGS Specialist exploring the microscopic universe through data.
-          Bridging wet lab expertise with computational biology.
-        </p>
-
-        <div class="flex flex-wrap gap-4">
-          <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all">
-            View Projects
-          </a>
-          <a href="#contact" class="px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold rounded-full hover:bg-purple-600 hover:text-white transition-all">
-            Get in Touch
-          </a>
-        </div>
-
-        <!-- Social Links -->
-        <div class="flex gap-4 pt-4">
-          <a href="https://github.com/shanptom" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300 hover:border-purple-600 hover:text-purple-600 transition-all">
-            <i class="fab fa-github text-xl"></i>
-          </a>
-          <a href="https://linkedin.com/in/shanptom" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300 hover:border-purple-600 hover:text-purple-600 transition-all">
-            <i class="fab fa-linkedin text-xl"></i>
-          </a>
-          <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300 hover:border-purple-600 hover:text-purple-600 transition-all">
-            <i class="fab fa-researchgate text-xl"></i>
-          </a>
-          <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300 hover:border-purple-600 hover:text-purple-600 transition-all">
-            <i class="fab fa-google text-xl"></i>
-          </a>
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <img src="assets/photo.png" alt="Shan Thomas" class="profile-image w-full" width="400" height="400">
         </div>
       </div>
 
-      <!-- Image -->
-      <div class="relative fade-in-up" style="animation-delay: 0.2s;">
-        <div class="relative z-10 float">
-          <img src="assets/photo.png" alt="Shan Thomas" class="rounded-[3rem] shadow-2xl w-full max-w-md mx-auto" width="1536" height="1024">
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-in" style="animation-delay: 0.4s;">
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Years Experience</span>
         </div>
-        <!-- Decorative Elements -->
-        <div class="absolute -top-6 -right-6 w-72 h-72 bg-gradient-to-br from-purple-400 to-orange-400 rounded-full opacity-20 blur-3xl -z-10"></div>
-        <div class="absolute -bottom-6 -left-6 w-64 h-64 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-full opacity-20 blur-3xl -z-10"></div>
+        <div class="stat">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">PhD</span>
+          <span class="stat-label">In Progress</span>
+        </div>
       </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <i class="fas fa-chevron-down text-2xl text-purple-600"></i>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in-up">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4">
-          <span class="gradient-text">About Me</span>
-        </h2>
-        <div class="h-1 w-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Translating molecular complexity into actionable insights
-        </p>
+  <section id="about" class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Expertise</h2>
+        <div class="accent-line"></div>
       </div>
 
-      <div class="grid lg:grid-cols-5 gap-12 items-start">
-        <!-- Main Content -->
-        <div class="lg:col-span-3 space-y-8 fade-in-up" style="animation-delay: 0.1s;">
-          <div class="glass p-8 rounded-3xl shadow-xl card-hover">
-            <h3 class="text-3xl font-bold mb-6 gradient-text">My Expertise</h3>
-            <div class="space-y-4 text-gray-700 leading-relaxed">
-              <p>
-                With hands-on experience across the full NGS workflow—from precise library preparation
-                and sequencing (Illumina, Nanopore) to data analysis using SLURM pipelines and R—I
-                approach each step with a methodical, problem-solving mindset.
-              </p>
-              <p>
-                My focus is on making molecular insights accurate, reproducible, and meaningful.
-                Whether troubleshooting workflows or optimizing protocols, I aim to bring clarity
-                and efficiency to every stage of the process.
-              </p>
-            </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Left column -->
+        <div class="fade-in" style="animation-delay: 0.1s;">
+          <div class="card mb-6">
+            <h3 class="text-xl font-semibold mb-4">Core Competencies</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              With comprehensive experience spanning the complete NGS workflow—from library preparation
+              and sequencing (Illumina, Nanopore) to bioinformatic analysis using HPC systems—I bring
+              a methodical, detail-oriented approach to molecular biology challenges.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              My work focuses on generating accurate, reproducible insights from complex biological data,
+              whether optimizing laboratory protocols or developing computational pipelines.
+            </p>
           </div>
 
-          <!-- Expertise Cards -->
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="glass p-6 rounded-2xl card-hover group">
-              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <i class="fas fa-dna text-white text-2xl"></i>
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">NGS Library Preparation</span>
+                  <span class="text-sm text-gray-500">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 90%"></div>
+                </div>
               </div>
-              <h4 class="text-xl font-bold mb-2">NGS Workflows</h4>
-              <p class="text-gray-600 text-sm">End-to-end sequencing solutions from library prep to analysis</p>
-            </div>
-
-            <div class="glass p-6 rounded-2xl card-hover group">
-              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <i class="fas fa-bacteria text-white text-2xl"></i>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">DNA/RNA Extraction</span>
+                  <span class="text-sm text-gray-500">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 100%"></div>
+                </div>
               </div>
-              <h4 class="text-xl font-bold mb-2">Microbial Ecology</h4>
-              <p class="text-gray-600 text-sm">Deep insights into microbial community dynamics</p>
-            </div>
-
-            <div class="glass p-6 rounded-2xl card-hover group">
-              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <i class="fas fa-chart-line text-white text-2xl"></i>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">R Programming & Analysis</span>
+                  <span class="text-sm text-gray-500">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%"></div>
+                </div>
               </div>
-              <h4 class="text-xl font-bold mb-2">Data Analysis</h4>
-              <p class="text-gray-600 text-sm">Statistical analysis and visualization with R</p>
-            </div>
-
-            <div class="glass p-6 rounded-2xl card-hover group">
-              <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <i class="fas fa-cogs text-white text-2xl"></i>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">QIIME2 / DADA2</span>
+                  <span class="text-sm text-gray-500">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 80%"></div>
+                </div>
               </div>
-              <h4 class="text-xl font-bold mb-2">HPC & Automation</h4>
-              <p class="text-gray-600 text-sm">SLURM pipelines and workflow optimization</p>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">HPC / SLURM</span>
+                  <span class="text-sm text-gray-500">Proficient</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Skills Circles -->
-        <div class="lg:col-span-2 fade-in-up" style="animation-delay: 0.2s;">
-          <div class="glass p-8 rounded-3xl shadow-xl sticky top-24">
-            <h3 class="text-2xl font-bold mb-8 text-center gradient-text">Key Skills</h3>
-
-            <div class="grid grid-cols-2 gap-6 mb-8">
-              <div class="skill-circle bg-gradient-to-br from-orange-400 to-orange-600 text-white">
-                <div>
-                  <div class="text-3xl font-bold">100%</div>
-                  <div class="text-xs">DNA/RNA<br/>Extraction</div>
-                </div>
+        <!-- Right column -->
+        <div class="space-y-6 fade-in" style="animation-delay: 0.2s;">
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-dna text-xl text-gray-700"></i>
               </div>
-              <div class="skill-circle bg-gradient-to-br from-purple-400 to-purple-600 text-white">
-                <div>
-                  <div class="text-3xl font-bold">95%</div>
-                  <div class="text-xs">PCR &<br/>qPCR</div>
-                </div>
-              </div>
-              <div class="skill-circle bg-gradient-to-br from-cyan-400 to-cyan-600 text-white">
-                <div>
-                  <div class="text-3xl font-bold">85%</div>
-                  <div class="text-xs">NGS Library<br/>Prep</div>
-                </div>
-              </div>
-              <div class="skill-circle bg-gradient-to-br from-pink-400 to-pink-600 text-white">
-                <div>
-                  <div class="text-3xl font-bold">85%</div>
-                  <div class="text-xs">R Programming<br/>& Stats</div>
-                </div>
+              <div>
+                <h4 class="font-semibold mb-2">Next-Generation Sequencing</h4>
+                <p class="text-sm text-gray-600">End-to-end NGS workflows including library prep, sequencing operations, and quality control for Illumina and Nanopore platforms.</p>
               </div>
             </div>
+          </div>
 
-            <div class="space-y-4">
-              <h4 class="font-bold text-center mb-4">Tools & Technologies</h4>
-              <div class="flex flex-wrap gap-2 justify-center">
-                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">QIIME2</span>
-                <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">DADA2</span>
-                <span class="px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-sm font-medium">Illumina</span>
-                <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-medium">Nanopore</span>
-                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">R/Shiny</span>
-                <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">SLURM</span>
-                <span class="px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-sm font-medium">HPC</span>
-                <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-medium">Shell</span>
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-bacteria text-xl text-gray-700"></i>
               </div>
+              <div>
+                <h4 class="font-semibold mb-2">Microbial Ecology</h4>
+                <p class="text-sm text-gray-600">Metabarcoding and microbiome analysis using 16S rRNA sequencing, with expertise in ancient DNA and environmental samples.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-chart-line text-xl text-gray-700"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Data Analysis</h4>
+                <p class="text-sm text-gray-600">Statistical analysis and visualization using R, Python, and specialized bioinformatics tools on high-performance computing systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-cogs text-xl text-gray-700"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Workflow Development</h4>
+                <p class="text-sm text-gray-600">Design and optimization of laboratory protocols and computational pipelines for reproducible, high-throughput analysis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="font-semibold mb-3">Technologies</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Illumina</span>
+              <span class="tag">Nanopore</span>
+              <span class="tag">QIIME2</span>
+              <span class="tag">DADA2</span>
+              <span class="tag">R/Shiny</span>
+              <span class="tag">Python</span>
+              <span class="tag">SLURM</span>
+              <span class="tag">HPC</span>
+              <span class="tag">Git</span>
+              <span class="tag">Docker</span>
             </div>
           </div>
         </div>
@@ -588,301 +633,233 @@
     </div>
   </section>
 
-  <!-- Career Section -->
-  <section id="career" class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-    <!-- Background Decoration -->
-    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#A855F7" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,72.8,41.2C64.2,53.2,52.6,62.6,39.3,69.1C26,75.6,11,79.2,-4.3,78.8C-19.6,78.4,-39.2,73.9,-54.3,65.1C-69.4,56.3,-80,43.2,-84.8,28.2C-89.6,13.2,-88.6,-3.7,-82.8,-18.2C-77,-32.7,-66.4,-44.8,-53.8,-52.4C-41.2,-60,-26.6,-63.1,-12.4,-65.8C1.8,-68.5,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16 fade-in-up">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4">
-          <span class="gradient-text">Career Journey</span>
-        </h2>
-        <div class="h-1 w-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          A path through molecular discovery and innovation
-        </p>
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Experience</h2>
+        <div class="accent-line"></div>
       </div>
 
-      <div class="relative pl-8 border-l-2 border-purple-300 space-y-12">
-        <!-- Timeline Items -->
-        <div class="timeline-item relative fade-in-up">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gradient-to-r from-orange-500 to-purple-600 text-white text-sm font-semibold rounded-full mb-3">
-              2022 – Present
-            </span>
-            <h3 class="text-2xl font-bold mb-2 gradient-text">PhD in Biology</h3>
-            <p class="text-gray-600 font-semibold mb-2">University of Toledo</p>
-            <p class="text-gray-500 text-sm mb-4">Ohio, USA</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Microbial ecology, metabarcoding, machine learning</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>SLURM / High-Performance Computing</span>
-              </li>
-            </ul>
+      <div class="timeline fade-in" style="animation-delay: 0.1s;">
+        <div class="timeline-item current">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2022 – PRESENT</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">PhD in Biology</h3>
+          <p class="text-gray-600 mb-1">University of Toledo</p>
+          <p class="text-sm text-gray-500 mb-3">Ohio, USA</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Microbial ecology research using metabarcoding and machine learning approaches</li>
+            <li>High-performance computing workflows using SLURM scheduling systems</li>
+          </ul>
         </div>
 
-        <div class="timeline-item relative fade-in-up" style="animation-delay: 0.1s;">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gray-200 text-gray-700 text-sm font-semibold rounded-full mb-3">
-              2020 – 2021
-            </span>
-            <h3 class="text-2xl font-bold mb-2">Technical Sales Specialist</h3>
-            <p class="text-gray-600 font-semibold mb-2">Specialized Scientific Solutions</p>
-            <p class="text-gray-500 text-sm mb-4">Riyadh, Saudi Arabia (Remote)</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Consultative sales – MGI and Illumina NGS solutions</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>End-user onboarding and workflow support</span>
-              </li>
-            </ul>
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2020 – 2021</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">Technical Sales Specialist</h3>
+          <p class="text-gray-600 mb-1">Specialized Scientific Solutions</p>
+          <p class="text-sm text-gray-500 mb-3">Riyadh, Saudi Arabia (Remote)</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Provided technical consultation for MGI and Illumina NGS platforms</li>
+            <li>End-user training and workflow optimization support</li>
+          </ul>
         </div>
 
-        <div class="timeline-item relative fade-in-up" style="animation-delay: 0.2s;">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gray-200 text-gray-700 text-sm font-semibold rounded-full mb-3">
-              2020
-            </span>
-            <h3 class="text-2xl font-bold mb-2">Assistant Manager, Molecular Biology</h3>
-            <p class="text-gray-600 font-semibold mb-2">LifeCell International</p>
-            <p class="text-gray-500 text-sm mb-4">Chennai, India</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Lab management and workflow automation</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Amplicon, WES, WGS library preparation</span>
-              </li>
-            </ul>
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2020</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">Assistant Manager, Molecular Biology</h3>
+          <p class="text-gray-600 mb-1">LifeCell International</p>
+          <p class="text-sm text-gray-500 mb-3">Chennai, India</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Laboratory management and team coordination</li>
+            <li>Amplicon, WES, and WGS library preparation workflows</li>
+          </ul>
         </div>
 
-        <div class="timeline-item relative fade-in-up" style="animation-delay: 0.3s;">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gray-200 text-gray-700 text-sm font-semibold rounded-full mb-3">
-              2017 – 2020
-            </span>
-            <h3 class="text-2xl font-bold mb-2">Research Associate</h3>
-            <p class="text-gray-600 font-semibold mb-2">MedGenome Labs</p>
-            <p class="text-gray-500 text-sm mb-4">Bangalore, India</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Sanger and NGS sequencing workflows</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Illumina instrument handling and maintenance</span>
-              </li>
-            </ul>
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2017 – 2020</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">Research Associate</h3>
+          <p class="text-gray-600 mb-1">MedGenome Labs</p>
+          <p class="text-sm text-gray-500 mb-3">Bangalore, India</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Sanger and NGS sequencing operations</li>
+            <li>Illumina instrument maintenance and troubleshooting</li>
+            <li>LIMS management and workflow optimization</li>
+          </ul>
         </div>
 
-        <div class="timeline-item relative fade-in-up" style="animation-delay: 0.4s;">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gray-200 text-gray-700 text-sm font-semibold rounded-full mb-3">
-              2015 – 2017
-            </span>
-            <h3 class="text-2xl font-bold mb-2">Researcher</h3>
-            <p class="text-gray-600 font-semibold mb-2">Geobiotechnology Lab</p>
-            <p class="text-gray-500 text-sm mb-4">Trichy, India</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Soil microbial ecology and ancient DNA metabarcoding</span>
-              </li>
-            </ul>
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2015 – 2017</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">Researcher</h3>
+          <p class="text-gray-600 mb-1">Geobiotechnology Lab</p>
+          <p class="text-sm text-gray-500 mb-3">Trichy, India</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Soil microbial ecology and ancient DNA metabarcoding</li>
+          </ul>
         </div>
 
-        <div class="timeline-item relative fade-in-up" style="animation-delay: 0.5s;">
-          <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <span class="inline-block px-4 py-1 bg-gray-200 text-gray-700 text-sm font-semibold rounded-full mb-3">
-              2013 – 2015
-            </span>
-            <h3 class="text-2xl font-bold mb-2">Senior Research Fellow</h3>
-            <p class="text-gray-600 font-semibold mb-2">Indian Agricultural Research Institute – ITCC</p>
-            <p class="text-gray-500 text-sm mb-4">New Delhi, India</p>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                <span>Microbiome analysis and fungal molecular taxonomy</span>
-              </li>
-            </ul>
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs text-gray-500">2013 – 2015</span>
           </div>
+          <h3 class="text-xl font-semibold mb-2">Senior Research Fellow</h3>
+          <p class="text-gray-600 mb-1">Indian Agricultural Research Institute – ITCC</p>
+          <p class="text-sm text-gray-500 mb-3">New Delhi, India</p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+            <li>Microbiome analysis and fungal molecular taxonomy</li>
+            <li>Entomology metabarcoding projects</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in-up">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4">
-          <span class="gradient-text">Projects & Publications</span>
-        </h2>
-        <div class="h-1 w-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Transforming biological questions into computational solutions
-        </p>
+  <section id="projects" class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Projects & Publications</h2>
+        <div class="accent-line"></div>
       </div>
 
-      <!-- Projects Bento Grid -->
-      <div class="mb-20">
-        <h3 class="text-3xl font-bold mb-8 text-center gradient-text">Featured Projects</h3>
-        <div class="bento-grid">
-          <div class="bento-item wide glass p-6 rounded-3xl card-hover fade-in-up">
-            <div class="flex items-start gap-4 h-full">
-              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-chart-bar text-white text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="text-2xl font-bold mb-3">
-                  <a href="https://shanptom.shinyapps.io/MicrobeStudio/" target="_blank" class="hover:text-purple-600 transition-colors">
-                    Microbiome Dashboard
-                  </a>
-                </h4>
-                <p class="text-gray-600">
-                  Interactive R Shiny dashboard for exploring diversity, ordination, and taxa distribution
-                  from metabarcoding data. Features real-time data visualization and statistical analysis.
-                </p>
-              </div>
+      <!-- Projects -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-6 fade-in">Featured Projects</h3>
+        <div class="project-grid fade-in" style="animation-delay: 0.1s;">
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://shanptom.shinyapps.io/MicrobeStudio/" target="_blank" class="hover:text-blue-600">
+                Microbiome Dashboard <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm text-gray-600 mb-3">Interactive R Shiny application for metabarcoding data visualization and statistical analysis.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">R</span>
+              <span class="tag">Shiny</span>
+              <span class="tag">Visualization</span>
             </div>
           </div>
 
-          <div class="bento-item glass p-6 rounded-3xl card-hover fade-in-up" style="animation-delay: 0.1s;">
-            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4">
-              <i class="fas fa-robot text-white text-2xl"></i>
-            </div>
-            <h4 class="text-xl font-bold mb-3">
-              <a href="https://github.com/shanptom/CodeSparkR/" target="_blank" class="hover:text-purple-600 transition-colors">
-                CodeSparkR
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://github.com/shanptom/CodeSparkR/" target="_blank" class="hover:text-blue-600">
+                CodeSparkR <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </h4>
-            <p class="text-gray-600 text-sm">
-              R package connecting console to 400+ LLMs via OpenRouter for AI-powered coding assistance.
-            </p>
-          </div>
-
-          <div class="bento-item glass p-6 rounded-3xl card-hover fade-in-up" style="animation-delay: 0.2s;">
-            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
-              <i class="fas fa-flask text-white text-2xl"></i>
-            </div>
-            <h4 class="text-xl font-bold mb-3">
-              <a href="https://protocart.streamlit.app/" target="_blank" class="hover:text-purple-600 transition-colors">
-                ProtoCart
-              </a>
-            </h4>
-            <p class="text-gray-600 text-sm">
-              Smart lab assistant extracting materials from protocols and building vendor-linked shopping lists.
-            </p>
-          </div>
-
-          <div class="bento-item tall glass p-6 rounded-3xl card-hover fade-in-up" style="animation-delay: 0.3s;">
-            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4">
-              <i class="fas fa-cloud text-white text-2xl"></i>
-            </div>
-            <h4 class="text-xl font-bold mb-3">
-              <a href="https://github.com/shanptom/AWS_trial" target="_blank" class="hover:text-purple-600 transition-colors">
-                AWS Cloud Infrastructure
-              </a>
-            </h4>
-            <p class="text-gray-600 text-sm mb-4">
-              Hands-on AWS implementation with EC2, S3, and IAM. Built functional metabarcoding database.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-              <span class="px-2 py-1 bg-pink-100 text-pink-600 rounded-lg text-xs">AWS</span>
-              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded-lg text-xs">EC2</span>
-              <span class="px-2 py-1 bg-cyan-100 text-cyan-600 rounded-lg text-xs">S3</span>
+            <p class="text-sm text-gray-600 mb-3">R package connecting to 400+ LLMs via OpenRouter for AI-assisted programming.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">R</span>
+              <span class="tag">API</span>
+              <span class="tag">AI</span>
             </div>
           </div>
 
-          <div class="bento-item glass p-6 rounded-3xl card-hover fade-in-up" style="animation-delay: 0.4s;">
-            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4">
-              <i class="fas fa-dna text-white text-2xl"></i>
-            </div>
-            <h4 class="text-xl font-bold mb-3">
-              <a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:text-purple-600 transition-colors">
-                Metabarcoding Guide
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://protocart.streamlit.app/" target="_blank" class="hover:text-blue-600">
+                ProtoCart <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </h4>
-            <p class="text-gray-600 text-sm">
-              Beginner-friendly guide for processing metabarcoding datasets on HPC systems.
-            </p>
+            <p class="text-sm text-gray-600 mb-3">Laboratory protocol parser that extracts materials and generates vendor-linked shopping lists.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">NLP</span>
+            </div>
           </div>
 
-          <div class="bento-item glass p-6 rounded-3xl card-hover fade-in-up" style="animation-delay: 0.5s;">
-            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4">
-              <i class="fas fa-dove text-white text-2xl"></i>
-            </div>
-            <h4 class="text-xl font-bold mb-3">
-              <a href="https://bioexpo-870918170044.us-central1.run.app" target="_blank" class="hover:text-purple-600 transition-colors">
-                GBIF Biodiversity Dashboard
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://github.com/shanptom/AWS_trial" target="_blank" class="hover:text-blue-600">
+                AWS Cloud Infrastructure <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </h4>
-            <p class="text-gray-600 text-sm">
-              Cloud-hosted Shiny app demonstrating R, Docker, and Google Cloud Run integration.
-            </p>
+            <p class="text-sm text-gray-600 mb-3">Metabarcoding database implementation using AWS EC2, S3, and IAM services.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">AWS</span>
+              <span class="tag">Cloud</span>
+              <span class="tag">Database</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:text-blue-600">
+                Metabarcoding Guide <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm text-gray-600 mb-3">Comprehensive tutorial for processing metabarcoding datasets on HPC systems.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Documentation</span>
+              <span class="tag">Tutorial</span>
+              <span class="tag">HPC</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://bioexpo-870918170044.us-central1.run.app" target="_blank" class="hover:text-blue-600">
+                GBIF Biodiversity Dashboard <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm text-gray-600 mb-3">Cloud-hosted biodiversity data explorer using R Shiny, Docker, and Google Cloud Run.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">R</span>
+              <span class="tag">Docker</span>
+              <span class="tag">GCP</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Publications -->
-      <div class="fade-in-up">
-        <h3 class="text-3xl font-bold mb-8 text-center gradient-text">Selected Publications</h3>
-        <div class="space-y-6 max-w-5xl mx-auto">
-          <div class="glass p-6 rounded-2xl card-hover">
-            <p class="text-gray-700 leading-relaxed">
-              <strong class="text-purple-600">Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., et al. (2018).
-              <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity</em>.
-              Geomicrobiology Journal, <strong>35</strong>(9), 798–803.
-              <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="text-orange-500 hover:underline ml-2">
-                <i class="fas fa-external-link-alt"></i> View
+      <div>
+        <h3 class="text-2xl font-semibold mb-6 fade-in">Selected Publications</h3>
+        <div class="space-y-4 fade-in" style="animation-delay: 0.1s;">
+          <div class="card">
+            <p class="text-sm leading-relaxed">
+              <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., et al. (2018).
+              <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity.</em>
+              Geomicrobiology Journal, 35(9), 798–803.
+              <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="ml-2">
+                <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </p>
           </div>
 
-          <div class="glass p-6 rounded-2xl card-hover">
-            <p class="text-gray-700 leading-relaxed">
-              <strong class="text-purple-600">Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., et al. (2019).
-              <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems</em>.
-              Microbiological Research, <strong>226</strong>, 65–73.
-              <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="text-orange-500 hover:underline ml-2">
-                <i class="fas fa-external-link-alt"></i> View
+          <div class="card">
+            <p class="text-sm leading-relaxed">
+              <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., et al. (2019).
+              <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems.</em>
+              Microbiological Research, 226, 65–73.
+              <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="ml-2">
+                <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </p>
           </div>
 
-          <div class="glass p-6 rounded-2xl card-hover">
-            <p class="text-gray-700 leading-relaxed">
-              Stetten, L., Boyanov, M. I., O'Loughlin, E. J., <strong class="text-purple-600">Thomas, S. P.</strong>, et al. (2025).
-              <em>Biogeochemical controls on iron speciation and cycling across upland to shoreline gradients</em>.
+          <div class="card">
+            <p class="text-sm leading-relaxed">
+              Stetten, L., Boyanov, M. I., O'Loughlin, E. J., <strong>Thomas, S. P.</strong>, et al. (2025).
+              <em>Biogeochemical controls on iron speciation and cycling across upland to shoreline gradients in freshwater and estuarine coastal soils.</em>
               Science of The Total Environment.
-              <a href="https://www.sciencedirect.com/science/article/pii/S0048969725015190" target="_blank" class="text-orange-500 hover:underline ml-2">
-                <i class="fas fa-external-link-alt"></i> View
+              <a href="https://www.sciencedirect.com/science/article/pii/S0048969725015190" target="_blank" class="ml-2">
+                <i class="fas fa-external-link-alt text-xs"></i>
               </a>
             </p>
           </div>
 
-          <div class="text-center mt-8">
-            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full hover:shadow-lg transition-all">
+          <div class="mt-6">
+            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="btn btn-outline">
               <i class="fab fa-google"></i>
               View All Publications
             </a>
@@ -893,105 +870,81 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 relative overflow-hidden bg-gradient-to-b from-purple-50 to-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in-up">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4">
-          <span class="gradient-text">Let's Connect</span>
-        </h2>
-        <div class="h-1 w-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Open to opportunities in NGS, technical support, and scientific collaboration
-        </p>
+  <section id="contact">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Contact</h2>
+        <div class="accent-line"></div>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12">
-        <!-- Contact Info -->
-        <div class="space-y-8 fade-in-up">
-          <div class="glass p-8 rounded-3xl shadow-xl">
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Get in Touch</h3>
-            <p class="text-gray-700 leading-relaxed mb-6">
-              I am actively seeking opportunities as a Field Application Scientist or in Technical
-              Support within the Next-Generation Sequencing (NGS) sector. If you have an opening—or
-              would like to explore how I can contribute to your team—please feel free to reach out.
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in" style="animation-delay: 0.1s;">
+          <div class="card mb-6">
+            <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              I am actively seeking opportunities as a Field Application Scientist or in Technical Support
+              within the Next-Generation Sequencing sector. If you have an opening or would like to explore
+              how I can contribute to your team, please reach out.
             </p>
-            <p class="text-gray-700 leading-relaxed">
-              Additionally, I offer professional NGS data analysis services and hands-on Basic R
-              workshops, tailored to suit research labs, academic institutions, or individual learning goals.
+            <p class="text-gray-600 leading-relaxed">
+              I also offer professional NGS data analysis services and hands-on R workshops tailored
+              to research labs, academic institutions, or individual learning goals.
             </p>
           </div>
 
-          <div class="glass p-8 rounded-3xl shadow-xl">
-            <h4 class="text-xl font-bold mb-6">Connect With Me</h4>
-            <div class="grid grid-cols-2 gap-4">
-              <a href="https://github.com/shanptom" target="_blank" class="flex items-center gap-3 p-4 rounded-xl hover:bg-purple-50 transition-colors group">
-                <div class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <i class="fab fa-github text-white text-xl"></i>
-                </div>
-                <span class="font-semibold text-gray-700">GitHub</span>
+          <div class="card">
+            <h4 class="font-semibold mb-4">Connect</h4>
+            <div class="space-y-3">
+              <a href="https://github.com/shanptom" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                <i class="fab fa-github w-5"></i>
+                <span>GitHub</span>
               </a>
-
-              <a href="https://linkedin.com/in/shanptom" target="_blank" class="flex items-center gap-3 p-4 rounded-xl hover:bg-purple-50 transition-colors group">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <i class="fab fa-linkedin text-white text-xl"></i>
-                </div>
-                <span class="font-semibold text-gray-700">LinkedIn</span>
+              <a href="https://linkedin.com/in/shanptom" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                <i class="fab fa-linkedin w-5"></i>
+                <span>LinkedIn</span>
               </a>
-
-              <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="flex items-center gap-3 p-4 rounded-xl hover:bg-purple-50 transition-colors group">
-                <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <i class="fab fa-researchgate text-white text-xl"></i>
-                </div>
-                <span class="font-semibold text-gray-700">ResearchGate</span>
+              <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                <i class="fab fa-researchgate w-5"></i>
+                <span>ResearchGate</span>
               </a>
-
-              <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="flex items-center gap-3 p-4 rounded-xl hover:bg-purple-50 transition-colors group">
-                <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <i class="fab fa-google text-white text-xl"></i>
-                </div>
-                <span class="font-semibold text-gray-700">Scholar</span>
+              <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                <i class="fab fa-google w-5"></i>
+                <span>Google Scholar</span>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <div class="fade-in-up" style="animation-delay: 0.2s;">
-          <div class="glass p-8 rounded-3xl shadow-xl">
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Send a Message</h3>
-            <form action="https://formspree.io/f/xblygkvj" method="POST" class="space-y-6">
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+            <form action="https://formspree.io/f/xblygkvj" method="POST" class="space-y-4">
               <div>
-                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Your Email
-                </label>
+                <label for="email" class="block text-sm font-medium mb-2">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
-                  placeholder="you@example.com"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="your@email.com"
                 >
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Your Message
-                </label>
+                <label for="message" class="block text-sm font-medium mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="5"
                   required
-                  class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all resize-none"
-                  placeholder="Tell me about your project or opportunity..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  placeholder="Your message..."
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                class="w-full py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl transform hover:scale-105 transition-all"
-              >
+              <button type="submit" class="btn btn-primary w-full">
+                <i class="fas fa-paper-plane"></i>
                 Send Message
               </button>
             </form>
@@ -1002,24 +955,20 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+  <footer class="border-t border-gray-200 py-8 mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
         <p>&copy; 2025 Shan Thomas. All rights reserved.</p>
-        <p class="text-sm">
-          Designed with <span class="text-red-500">&hearts;</span> by
-          <a href="https://cline.bot/" target="_blank" class="text-purple-400 hover:underline">Cline</a>
+        <p>
+          Designed by <a href="https://cline.bot/" target="_blank" class="hover:text-gray-900">Cline</a>
         </p>
-        <a href="old_version/index.html" class="text-purple-400 hover:underline text-sm">
-          View Previous Version
-        </a>
+        <a href="old_version/index.html" class="hover:text-gray-900">Previous Version</a>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Mobile Menu Toggle
+    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1040,7 +989,7 @@
       });
     });
 
-    // Smooth Scrolling
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1054,7 +1003,7 @@
       });
     });
 
-    // Active Navigation
+    // Active nav on scroll
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -1062,7 +1011,6 @@
       let current = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (pageYOffset >= sectionTop - 200) {
           current = section.getAttribute('id');
         }
@@ -1076,12 +1024,11 @@
       });
     });
 
-    // Dark Mode Toggle
+    // Dark mode toggle
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-
-    // Check for saved theme preference
     const currentTheme = localStorage.getItem('theme');
+
     if (currentTheme === 'dark') {
       document.body.classList.add('dark-mode');
       themeIcon.classList.remove('fa-moon');
@@ -1090,7 +1037,6 @@
 
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-
       if (document.body.classList.contains('dark-mode')) {
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
@@ -1102,10 +1048,10 @@
       }
     });
 
-    // Fade in animations on scroll
+    // Fade in on scroll
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -1117,27 +1063,9 @@
       });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-in-up').forEach(el => {
+    document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
-
-    // Create floating particles
-    function createParticles() {
-      const particlesContainer = document.createElement('div');
-      particlesContainer.classList.add('particles');
-      document.querySelector('#home').appendChild(particlesContainer);
-
-      for (let i = 0; i < 15; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    createParticles();
   </script>
 </body>
 </html>
