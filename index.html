@@ -6,7 +6,7 @@
   <meta name="description" content="Portfolio of Shan Thomas, showcasing skills in NGS, microbial ecology, and bioinformatics.">
   <meta name="author" content="Shan Thomas">
   <meta name="keywords" content="NGS, Next-Generation Sequencing, Microbial Ecology, Bioinformatics, QIIME2, DADA2, Illumina, Nanopore, Molecular Biology, Data Analysis, R Programming, Metabarcoding, 16S rRNA, Microbiome Analysis, HPC, SLURM, DNA Sequencing, PCR">
-  <meta name="theme-color" content="#1a1a1a">
+  <meta name="theme-color" content="#f97316">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://shanptom.github.io/">
   <meta property="og:title" content="Shan Thomas | NGS | Microbial Ecology">
@@ -33,14 +33,27 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
     :root {
-      --primary: #0f172a;
-      --secondary: #334155;
-      --accent: #0ea5e9;
-      --text: #1e293b;
-      --text-light: #64748b;
-      --border: #e2e8f0;
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --secondary: #fb923c;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
       --bg: #ffffff;
-      --bg-secondary: #f8fafc;
+      --bg-secondary: #fef3f2;
+      --card-bg: #ffffff;
+    }
+
+    body.dark-mode {
+      --primary: #a855f7;
+      --primary-dark: #9333ea;
+      --secondary: #c084fc;
+      --text: #f3f4f6;
+      --text-light: #d1d5db;
+      --border: #4b5563;
+      --bg: #1f2937;
+      --bg-secondary: #111827;
+      --card-bg: #374151;
     }
 
     * {
@@ -54,6 +67,7 @@
       line-height: 1.6;
       color: var(--text);
       background: var(--bg);
+      transition: background-color 0.3s ease, color 0.3s ease;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -61,19 +75,16 @@
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
     }
 
-    /* Typography */
     h1, h2, h3, h4 {
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.02em;
     }
 
-    /* Smooth scroll */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -83,17 +94,19 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--secondary);
+      background: var(--primary);
       border-radius: 3px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary);
+      background: var(--primary-dark);
     }
 
     /* Navigation */
     nav {
       transition: all 0.3s ease;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-link {
@@ -112,20 +125,19 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: var(--primary);
       transition: width 0.2s ease;
     }
 
     .nav-link:hover,
     .nav-link.active {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .nav-link.active::after {
       width: 100%;
     }
 
-    /* Subtle fade-in */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -139,9 +151,8 @@
       }
     }
 
-    /* Card styles */
     .card {
-      background: var(--bg);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 2rem;
@@ -149,11 +160,10 @@
     }
 
     .card:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
-    /* Skill bars - clean minimal design */
     .skill-bar {
       height: 6px;
       background: var(--border);
@@ -164,12 +174,11 @@
 
     .skill-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      background: var(--primary);
       border-radius: 3px;
       transition: width 1s ease;
     }
 
-    /* Timeline */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -198,23 +207,19 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--bg);
-      border: 2px solid var(--accent);
+      background: var(--card-bg);
+      border: 2px solid var(--primary);
     }
 
     .timeline-item.current::before {
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
     }
 
-    /* Project grid */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+    body.dark-mode .timeline-item.current::before {
+      box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
     }
 
-    /* Tags */
     .tag {
       display: inline-block;
       padding: 0.25rem 0.75rem;
@@ -228,26 +233,23 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Accent elements */
     .accent-line {
       width: 60px;
       height: 3px;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: 2px;
     }
 
-    /* Links */
     a {
-      color: var(--accent);
+      color: var(--primary);
       text-decoration: none;
       transition: color 0.2s;
     }
 
     a:hover {
-      color: var(--primary);
+      color: var(--primary-dark);
     }
 
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -267,8 +269,8 @@
     }
 
     .btn-primary:hover {
-      background: var(--secondary);
-      border-color: var(--secondary);
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
       transform: translateY(-1px);
     }
 
@@ -283,26 +285,6 @@
       color: white;
     }
 
-    /* Dark mode */
-    body.dark-mode {
-      --primary: #f8fafc;
-      --secondary: #e2e8f0;
-      --accent: #38bdf8;
-      --text: #f1f5f9;
-      --text-light: #94a3b8;
-      --border: #334155;
-      --bg: #0f172a;
-      --bg-secondary: #1e293b;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Section spacing */
     section {
       padding: 5rem 0;
     }
@@ -313,21 +295,11 @@
       }
     }
 
-    /* Image styling */
     .profile-image {
       border-radius: 8px;
       border: 1px solid var(--border);
     }
 
-    /* Divider */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 3rem 0;
-    }
-
-    /* Stats counter */
     .stat {
       text-align: center;
       padding: 1.5rem;
@@ -346,6 +318,121 @@
       color: var(--text-light);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    /* Carousel Styles */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .carousel-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .carousel-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 2rem;
+      color: white;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      color: #1f2937;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    body.dark-mode .carousel-nav {
+      background: rgba(55, 65, 81, 0.9);
+      color: white;
+    }
+
+    .carousel-nav:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+      left: 1rem;
+    }
+
+    .carousel-nav.next {
+      right: 1rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary);
+      width: 24px;
+      border-radius: 5px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-image {
+        height: 300px;
+      }
+
+      .carousel-nav {
+        width: 36px;
+        height: 36px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -381,7 +468,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50" style="background: rgba(255, 255, 255, 0.8);">
+  <nav class="fixed top-0 left-0 right-0 backdrop-blur-md z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center h-16">
         <a href="#home" class="font-semibold text-lg">Shan Thomas</a>
@@ -389,12 +476,13 @@
         <!-- Desktop Nav -->
         <div class="hidden md:flex items-center gap-8">
           <a href="#home" class="nav-link active">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#experience" class="nav-link">Experience</a>
-          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#publications" class="nav-link">Publications</a>
           <a href="#contact" class="nav-link">Contact</a>
 
-          <button id="theme-toggle" class="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
             <i class="fas fa-moon text-sm" id="theme-icon"></i>
           </button>
         </div>
@@ -408,9 +496,10 @@
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden md:hidden pb-4">
         <a href="#home" class="block py-2 nav-link">Home</a>
+        <a href="#projects" class="block py-2 nav-link">Projects</a>
         <a href="#about" class="block py-2 nav-link">About</a>
         <a href="#experience" class="block py-2 nav-link">Experience</a>
-        <a href="#projects" class="block py-2 nav-link">Projects</a>
+        <a href="#publications" class="block py-2 nav-link">Publications</a>
         <a href="#contact" class="block py-2 nav-link">Contact</a>
       </div>
     </div>
@@ -422,13 +511,13 @@
       <div class="grid md:grid-cols-3 gap-12 items-center">
         <div class="md:col-span-2 fade-in">
           <div class="mb-6">
-            <span class="mono text-sm text-gray-500 tracking-wide">MOLECULAR BIOLOGIST / NGS SPECIALIST</span>
+            <span class="mono text-sm tracking-wide" style="color: var(--text-light);">MOLECULAR BIOLOGIST / NGS SPECIALIST</span>
           </div>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
             Shan Thomas
           </h1>
           <div class="accent-line mb-6"></div>
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+          <p class="text-xl mb-8 leading-relaxed max-w-2xl" style="color: var(--text-light);">
             Bridging laboratory expertise with computational analysis. Specializing in Next-Generation
             Sequencing workflows, microbial ecology, and high-performance data analysis.
           </p>
@@ -445,16 +534,16 @@
           </div>
 
           <div class="flex gap-4">
-            <a href="https://github.com/shanptom" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="https://github.com/shanptom" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
               <i class="fab fa-github text-xl"></i>
             </a>
-            <a href="https://linkedin.com/in/shanptom" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="https://linkedin.com/in/shanptom" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
               <i class="fab fa-linkedin text-xl"></i>
             </a>
-            <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
               <i class="fab fa-researchgate text-xl"></i>
             </a>
-            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
               <i class="fab fa-google text-xl"></i>
             </a>
           </div>
@@ -487,8 +576,168 @@
     </div>
   </section>
 
+  <!-- Projects Section - Now First -->
+  <section id="projects" style="background: var(--bg-secondary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+        <div class="accent-line"></div>
+        <p class="mt-4" style="color: var(--text-light);">Computational tools and analysis pipelines for NGS and microbiome research</p>
+      </div>
+
+      <!-- Carousel -->
+      <div class="fade-in" style="animation-delay: 0.1s;">
+        <div class="carousel">
+          <div class="carousel-container" id="carousel-container">
+            <!-- Slide 1: Microbiome Dashboard -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/f97316/ffffff?text=Microbiome+Dashboard" alt="Microbiome Dashboard" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">Microbiome Dashboard</h3>
+                <p class="mb-3">Interactive R Shiny application for exploring diversity, ordination, and taxa distribution from metabarcoding data.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Shiny</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Visualization</span>
+                </div>
+                <a href="https://shanptom.shinyapps.io/MicrobeStudio/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2: CodeSparkR -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/9333ea/ffffff?text=CodeSparkR" alt="CodeSparkR" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">CodeSparkR</h3>
+                <p class="mb-3">R package connecting console to 400+ LLMs via OpenRouter for AI-powered coding assistance.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">API</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">AI</span>
+                </div>
+                <a href="https://github.com/shanptom/CodeSparkR/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3: ProtoCart -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/06b6d4/ffffff?text=ProtoCart" alt="ProtoCart" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">ProtoCart</h3>
+                <p class="mb-3">Smart lab assistant that extracts materials from experimental protocols and builds vendor-linked shopping lists.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Python</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Streamlit</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">NLP</span>
+                </div>
+                <a href="https://protocart.streamlit.app/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 4: AWS Cloud -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/ec4899/ffffff?text=AWS+Cloud+Infrastructure" alt="AWS Cloud" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">AWS Cloud Infrastructure</h3>
+                <p class="mb-3">Metabarcoding database implementation using AWS EC2, S3, and IAM services for scalable bioinformatics workflows.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">AWS</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Cloud</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Database</span>
+                </div>
+                <a href="https://github.com/shanptom/AWS_trial" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 5: GBIF Dashboard -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/10b981/ffffff?text=GBIF+Biodiversity+Dashboard" alt="GBIF Dashboard" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">GBIF Biodiversity Dashboard</h3>
+                <p class="mb-3">Cloud-hosted biodiversity data explorer using R Shiny, Docker, and Google Cloud Run.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Docker</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">GCP</span>
+                </div>
+                <a href="https://bioexpo-870918170044.us-central1.run.app" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="carousel-nav prev" id="carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav next" id="carousel-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+
+      <!-- Additional Projects Grid -->
+      <div class="mt-16 fade-in" style="animation-delay: 0.2s;">
+        <h3 class="text-2xl font-semibold mb-6">Additional Projects</h3>
+        <div class="project-grid">
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank">
+                Metabarcoding Guide <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Comprehensive tutorial for processing metabarcoding datasets on HPC systems.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Documentation</span>
+              <span class="tag">Tutorial</span>
+              <span class="tag">HPC</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://shanptom.github.io/mdZotero/" target="_blank">
+                Markdown & Zotero <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Workflow for scientific writing using Markdown with Zotero integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Documentation</span>
+              <span class="tag">Writing</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://shanptom.github.io/GitIntro/" target="_blank">
+                Git & GitHub Guide <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Beginner's guide to version control with Git and GitHub for research.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Tutorial</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
-  <section id="about" class="bg-gray-50">
+  <section id="about">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-12 fade-in">
         <h2 class="text-4xl font-bold mb-4">Expertise</h2>
@@ -496,16 +745,15 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-12">
-        <!-- Left column -->
         <div class="fade-in" style="animation-delay: 0.1s;">
           <div class="card mb-6">
             <h3 class="text-xl font-semibold mb-4">Core Competencies</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">
+            <p class="mb-6 leading-relaxed" style="color: var(--text-light);">
               With comprehensive experience spanning the complete NGS workflow—from library preparation
               and sequencing (Illumina, Nanopore) to bioinformatic analysis using HPC systems—I bring
               a methodical, detail-oriented approach to molecular biology challenges.
             </p>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="leading-relaxed" style="color: var(--text-light);">
               My work focuses on generating accurate, reproducible insights from complex biological data,
               whether optimizing laboratory protocols or developing computational pipelines.
             </p>
@@ -517,7 +765,7 @@
               <div>
                 <div class="flex justify-between mb-1">
                   <span class="font-medium text-sm">NGS Library Preparation</span>
-                  <span class="text-sm text-gray-500">Expert</span>
+                  <span class="text-sm" style="color: var(--text-light);">Expert</span>
                 </div>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width: 90%"></div>
@@ -526,7 +774,7 @@
               <div>
                 <div class="flex justify-between mb-1">
                   <span class="font-medium text-sm">DNA/RNA Extraction</span>
-                  <span class="text-sm text-gray-500">Expert</span>
+                  <span class="text-sm" style="color: var(--text-light);">Expert</span>
                 </div>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width: 100%"></div>
@@ -535,7 +783,7 @@
               <div>
                 <div class="flex justify-between mb-1">
                   <span class="font-medium text-sm">R Programming & Analysis</span>
-                  <span class="text-sm text-gray-500">Advanced</span>
+                  <span class="text-sm" style="color: var(--text-light);">Advanced</span>
                 </div>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width: 85%"></div>
@@ -544,7 +792,7 @@
               <div>
                 <div class="flex justify-between mb-1">
                   <span class="font-medium text-sm">QIIME2 / DADA2</span>
-                  <span class="text-sm text-gray-500">Advanced</span>
+                  <span class="text-sm" style="color: var(--text-light);">Advanced</span>
                 </div>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width: 80%"></div>
@@ -553,7 +801,7 @@
               <div>
                 <div class="flex justify-between mb-1">
                   <span class="font-medium text-sm">HPC / SLURM</span>
-                  <span class="text-sm text-gray-500">Proficient</span>
+                  <span class="text-sm" style="color: var(--text-light);">Proficient</span>
                 </div>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width: 75%"></div>
@@ -563,52 +811,51 @@
           </div>
         </div>
 
-        <!-- Right column -->
         <div class="space-y-6 fade-in" style="animation-delay: 0.2s;">
           <div class="card">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-dna text-xl text-gray-700"></i>
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-dna text-xl" style="color: var(--primary);"></i>
               </div>
               <div>
                 <h4 class="font-semibold mb-2">Next-Generation Sequencing</h4>
-                <p class="text-sm text-gray-600">End-to-end NGS workflows including library prep, sequencing operations, and quality control for Illumina and Nanopore platforms.</p>
+                <p class="text-sm" style="color: var(--text-light);">End-to-end NGS workflows including library prep, sequencing operations, and quality control for Illumina and Nanopore platforms.</p>
               </div>
             </div>
           </div>
 
           <div class="card">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-bacteria text-xl text-gray-700"></i>
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-bacteria text-xl" style="color: var(--primary);"></i>
               </div>
               <div>
                 <h4 class="font-semibold mb-2">Microbial Ecology</h4>
-                <p class="text-sm text-gray-600">Metabarcoding and microbiome analysis using 16S rRNA sequencing, with expertise in ancient DNA and environmental samples.</p>
+                <p class="text-sm" style="color: var(--text-light);">Metabarcoding and microbiome analysis using 16S rRNA sequencing, with expertise in ancient DNA and environmental samples.</p>
               </div>
             </div>
           </div>
 
           <div class="card">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-chart-line text-xl text-gray-700"></i>
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-chart-line text-xl" style="color: var(--primary);"></i>
               </div>
               <div>
                 <h4 class="font-semibold mb-2">Data Analysis</h4>
-                <p class="text-sm text-gray-600">Statistical analysis and visualization using R, Python, and specialized bioinformatics tools on high-performance computing systems.</p>
+                <p class="text-sm" style="color: var(--text-light);">Statistical analysis and visualization using R, Python, and specialized bioinformatics tools on high-performance computing systems.</p>
               </div>
             </div>
           </div>
 
           <div class="card">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-cogs text-xl text-gray-700"></i>
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-cogs text-xl" style="color: var(--primary);"></i>
               </div>
               <div>
                 <h4 class="font-semibold mb-2">Workflow Development</h4>
-                <p class="text-sm text-gray-600">Design and optimization of laboratory protocols and computational pipelines for reproducible, high-throughput analysis.</p>
+                <p class="text-sm" style="color: var(--text-light);">Design and optimization of laboratory protocols and computational pipelines for reproducible, high-throughput analysis.</p>
               </div>
             </div>
           </div>
@@ -634,7 +881,7 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
+  <section id="experience" style="background: var(--bg-secondary);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-12 fade-in">
         <h2 class="text-4xl font-bold mb-4">Experience</h2>
@@ -644,12 +891,12 @@
       <div class="timeline fade-in" style="animation-delay: 0.1s;">
         <div class="timeline-item current">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2022 – PRESENT</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2022 – PRESENT</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">PhD in Biology</h3>
-          <p class="text-gray-600 mb-1">University of Toledo</p>
-          <p class="text-sm text-gray-500 mb-3">Ohio, USA</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">University of Toledo</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Ohio, USA</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Microbial ecology research using metabarcoding and machine learning approaches</li>
             <li>High-performance computing workflows using SLURM scheduling systems</li>
           </ul>
@@ -657,12 +904,12 @@
 
         <div class="timeline-item">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2020 – 2021</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2020 – 2021</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">Technical Sales Specialist</h3>
-          <p class="text-gray-600 mb-1">Specialized Scientific Solutions</p>
-          <p class="text-sm text-gray-500 mb-3">Riyadh, Saudi Arabia (Remote)</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">Specialized Scientific Solutions</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Riyadh, Saudi Arabia (Remote)</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Provided technical consultation for MGI and Illumina NGS platforms</li>
             <li>End-user training and workflow optimization support</li>
           </ul>
@@ -670,12 +917,12 @@
 
         <div class="timeline-item">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2020</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2020</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">Assistant Manager, Molecular Biology</h3>
-          <p class="text-gray-600 mb-1">LifeCell International</p>
-          <p class="text-sm text-gray-500 mb-3">Chennai, India</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">LifeCell International</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Chennai, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Laboratory management and team coordination</li>
             <li>Amplicon, WES, and WGS library preparation workflows</li>
           </ul>
@@ -683,12 +930,12 @@
 
         <div class="timeline-item">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2017 – 2020</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2017 – 2020</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">Research Associate</h3>
-          <p class="text-gray-600 mb-1">MedGenome Labs</p>
-          <p class="text-sm text-gray-500 mb-3">Bangalore, India</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">MedGenome Labs</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Bangalore, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Sanger and NGS sequencing operations</li>
             <li>Illumina instrument maintenance and troubleshooting</li>
             <li>LIMS management and workflow optimization</li>
@@ -697,24 +944,24 @@
 
         <div class="timeline-item">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2015 – 2017</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2015 – 2017</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">Researcher</h3>
-          <p class="text-gray-600 mb-1">Geobiotechnology Lab</p>
-          <p class="text-sm text-gray-500 mb-3">Trichy, India</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">Geobiotechnology Lab</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Trichy, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Soil microbial ecology and ancient DNA metabarcoding</li>
           </ul>
         </div>
 
         <div class="timeline-item">
           <div class="mb-1">
-            <span class="mono text-xs text-gray-500">2013 – 2015</span>
+            <span class="mono text-xs" style="color: var(--text-light);">2013 – 2015</span>
           </div>
           <h3 class="text-xl font-semibold mb-2">Senior Research Fellow</h3>
-          <p class="text-gray-600 mb-1">Indian Agricultural Research Institute – ITCC</p>
-          <p class="text-sm text-gray-500 mb-3">New Delhi, India</p>
-          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+          <p class="mb-1" style="color: var(--text-light);">Indian Agricultural Research Institute – ITCC</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">New Delhi, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
             <li>Microbiome analysis and fungal molecular taxonomy</li>
             <li>Entomology metabarcoding projects</li>
           </ul>
@@ -723,154 +970,60 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="bg-gray-50">
+  <!-- Publications Section -->
+  <section id="publications">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-12 fade-in">
-        <h2 class="text-4xl font-bold mb-4">Projects & Publications</h2>
+        <h2 class="text-4xl font-bold mb-4">Publications</h2>
         <div class="accent-line"></div>
       </div>
 
-      <!-- Projects -->
-      <div class="mb-16">
-        <h3 class="text-2xl font-semibold mb-6 fade-in">Featured Projects</h3>
-        <div class="project-grid fade-in" style="animation-delay: 0.1s;">
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://shanptom.shinyapps.io/MicrobeStudio/" target="_blank" class="hover:text-blue-600">
-                Microbiome Dashboard <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">Interactive R Shiny application for metabarcoding data visualization and statistical analysis.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">R</span>
-              <span class="tag">Shiny</span>
-              <span class="tag">Visualization</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://github.com/shanptom/CodeSparkR/" target="_blank" class="hover:text-blue-600">
-                CodeSparkR <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">R package connecting to 400+ LLMs via OpenRouter for AI-assisted programming.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">R</span>
-              <span class="tag">API</span>
-              <span class="tag">AI</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://protocart.streamlit.app/" target="_blank" class="hover:text-blue-600">
-                ProtoCart <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">Laboratory protocol parser that extracts materials and generates vendor-linked shopping lists.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Python</span>
-              <span class="tag">Streamlit</span>
-              <span class="tag">NLP</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://github.com/shanptom/AWS_trial" target="_blank" class="hover:text-blue-600">
-                AWS Cloud Infrastructure <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">Metabarcoding database implementation using AWS EC2, S3, and IAM services.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">AWS</span>
-              <span class="tag">Cloud</span>
-              <span class="tag">Database</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank" class="hover:text-blue-600">
-                Metabarcoding Guide <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">Comprehensive tutorial for processing metabarcoding datasets on HPC systems.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Documentation</span>
-              <span class="tag">Tutorial</span>
-              <span class="tag">HPC</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4 class="font-semibold mb-2">
-              <a href="https://bioexpo-870918170044.us-central1.run.app" target="_blank" class="hover:text-blue-600">
-                GBIF Biodiversity Dashboard <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">Cloud-hosted biodiversity data explorer using R Shiny, Docker, and Google Cloud Run.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">R</span>
-              <span class="tag">Docker</span>
-              <span class="tag">GCP</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Publications -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-6 fade-in">Selected Publications</h3>
-        <div class="space-y-4 fade-in" style="animation-delay: 0.1s;">
-          <div class="card">
-            <p class="text-sm leading-relaxed">
-              <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., et al. (2018).
-              <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity.</em>
-              Geomicrobiology Journal, 35(9), 798–803.
-              <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="ml-2">
-                <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </p>
-          </div>
-
-          <div class="card">
-            <p class="text-sm leading-relaxed">
-              <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., et al. (2019).
-              <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems.</em>
-              Microbiological Research, 226, 65–73.
-              <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="ml-2">
-                <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </p>
-          </div>
-
-          <div class="card">
-            <p class="text-sm leading-relaxed">
-              Stetten, L., Boyanov, M. I., O'Loughlin, E. J., <strong>Thomas, S. P.</strong>, et al. (2025).
-              <em>Biogeochemical controls on iron speciation and cycling across upland to shoreline gradients in freshwater and estuarine coastal soils.</em>
-              Science of The Total Environment.
-              <a href="https://www.sciencedirect.com/science/article/pii/S0048969725015190" target="_blank" class="ml-2">
-                <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </p>
-          </div>
-
-          <div class="mt-6">
-            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="btn btn-outline">
-              <i class="fab fa-google"></i>
-              View All Publications
+      <div class="space-y-4 fade-in" style="animation-delay: 0.1s;">
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., et al. (2018).
+            <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity.</em>
+            Geomicrobiology Journal, 35(9), 798–803.
+            <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
             </a>
-          </div>
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., et al. (2019).
+            <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems.</em>
+            Microbiological Research, 226, 65–73.
+            <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            Stetten, L., Boyanov, M. I., O'Loughlin, E. J., <strong>Thomas, S. P.</strong>, et al. (2025).
+            <em>Biogeochemical controls on iron speciation and cycling across upland to shoreline gradients in freshwater and estuarine coastal soils.</em>
+            Science of The Total Environment.
+            <a href="https://www.sciencedirect.com/science/article/pii/S0048969725015190" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </p>
+        </div>
+
+        <div class="mt-6">
+          <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="btn btn-outline">
+            <i class="fab fa-google"></i>
+            View All Publications
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" style="background: var(--bg-secondary);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-12 fade-in">
         <h2 class="text-4xl font-bold mb-4">Contact</h2>
@@ -881,12 +1034,12 @@
         <div class="fade-in" style="animation-delay: 0.1s;">
           <div class="card mb-6">
             <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">
+            <p class="mb-4 leading-relaxed" style="color: var(--text-light);">
               I am actively seeking opportunities as a Field Application Scientist or in Technical Support
               within the Next-Generation Sequencing sector. If you have an opening or would like to explore
               how I can contribute to your team, please reach out.
             </p>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="leading-relaxed" style="color: var(--text-light);">
               I also offer professional NGS data analysis services and hands-on R workshops tailored
               to research labs, academic institutions, or individual learning goals.
             </p>
@@ -895,19 +1048,19 @@
           <div class="card">
             <h4 class="font-semibold mb-4">Connect</h4>
             <div class="space-y-3">
-              <a href="https://github.com/shanptom" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+              <a href="https://github.com/shanptom" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
                 <i class="fab fa-github w-5"></i>
                 <span>GitHub</span>
               </a>
-              <a href="https://linkedin.com/in/shanptom" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+              <a href="https://linkedin.com/in/shanptom" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
                 <i class="fab fa-linkedin w-5"></i>
                 <span>LinkedIn</span>
               </a>
-              <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+              <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
                 <i class="fab fa-researchgate w-5"></i>
                 <span>ResearchGate</span>
               </a>
-              <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+              <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
                 <i class="fab fa-google w-5"></i>
                 <span>Google Scholar</span>
               </a>
@@ -926,7 +1079,8 @@
                   id="email"
                   name="email"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  class="w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:border-transparent"
+                  style="border: 1px solid var(--border); background: var(--bg); color: var(--text);"
                   placeholder="your@email.com"
                 >
               </div>
@@ -938,7 +1092,8 @@
                   name="message"
                   rows="5"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  class="w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                  style="border: 1px solid var(--border); background: var(--bg); color: var(--text);"
                   placeholder="Your message..."
                 ></textarea>
               </div>
@@ -955,19 +1110,68 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-200 py-8 mt-20">
+  <footer class="py-8 mt-20" style="border-top: 1px solid var(--border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style="color: var(--text-light);">
         <p>&copy; 2025 Shan Thomas. All rights reserved.</p>
         <p>
-          Designed by <a href="https://cline.bot/" target="_blank" class="hover:text-gray-900">Cline</a>
+          Designed by <a href="https://cline.bot/" target="_blank">Cline</a>
         </p>
-        <a href="old_version/index.html" class="hover:text-gray-900">Previous Version</a>
+        <a href="old_version/index.html">Previous Version</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Carousel functionality
+    const carouselContainer = document.getElementById('carousel-container');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function updateCarousel() {
+      carouselContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto-advance carousel
+    setInterval(nextSlide, 5000);
+
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
