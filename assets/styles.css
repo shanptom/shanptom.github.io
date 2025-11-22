@@ -780,35 +780,54 @@ section {
   transform: translateX(5px);
 }
 
-.dna-container:hover .nucleotide::after {
+/* Nucleotide Content (Letters & Brackets) */
+.nucleotide::after {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--bg-primary);
 }
 
-/* Default: show code brackets */
+/* Default: Show Letters */
+.nucleotide.adenine::after {
+  content: 'A';
+}
+
+.nucleotide.thymine::after {
+  content: 'T';
+}
+
+.nucleotide.guanine::after {
+  content: 'G';
+}
+
+.nucleotide.cytosine::after {
+  content: 'C';
+}
+
+/* Hover: Show Code Brackets */
+.dna-container:hover .nucleotide::after {
+  font-size: 14px;
+}
+
 .dna-container:hover .nucleotide.adenine::after {
   content: '{';
-  color: var(--bg-primary);
 }
 
 .dna-container:hover .nucleotide.thymine::after {
   content: '}';
-  color: var(--bg-primary);
 }
 
 .dna-container:hover .nucleotide.guanine::after {
   content: '[';
-  color: var(--bg-primary);
 }
 
 .dna-container:hover .nucleotide.cytosine::after {
   content: ']';
-  color: var(--bg-primary);
 }
 
 .dna-label {
