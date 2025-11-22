@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Shan Thomas, showcasing skills in NGS, microbial ecology, and bioinformatics.">
+  <meta name="author" content="Shan Thomas">
+  <meta name="keywords" content="NGS, Next-Generation Sequencing, Microbial Ecology, Bioinformatics, QIIME2, DADA2, Illumina, Nanopore, Molecular Biology, Data Analysis, R Programming, Metabarcoding, 16S rRNA, Microbiome Analysis, HPC, SLURM, DNA Sequencing, PCR">
+  <meta name="theme-color" content="#f97316">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://shanptom.github.io/">
+  <meta property="og:title" content="Shan Thomas | NGS | Microbial Ecology">
+  <meta property="og:description" content="Portfolio of Shan Thomas, Molecular Biologist and NGS Specialist.">
+  <meta property="og:image" content="https://shanptom.github.io/assets/photo.png">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Shan Thomas - Molecular Biologist and NGS Specialist">
+  <meta property="og:url" content="https://shanptom.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shan Thomas | NGS | Microbial Ecology">
+  <meta name="twitter:description" content="Portfolio of Shan Thomas, Molecular Biologist and NGS Specialist.">
+  <meta name="twitter:image" content="https://shanptom.github.io/assets/photo.png">
+  <meta name="google-site-verification" content="J2_-Jr4mRzdCgNMod5ljSBTgrlZ3JqS5E12Qre64xkI" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <title>Shan Thomas | NGS | Microbial Ecology</title>
+  <link rel="icon" href="assets/dna.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+    :root {
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --secondary: #fb923c;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-secondary: #fef3f2;
+      --card-bg: #ffffff;
+    }
+
+    body.dark-mode {
+      --primary: #a855f7;
+      --primary-dark: #9333ea;
+      --secondary: #c084fc;
+      --text: #f3f4f6;
+      --text-light: #d1d5db;
+      --border: #4b5563;
+      --bg: #1f2937;
+      --bg-secondary: #111827;
+      --card-bg: #374151;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mono {
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Navigation */
+    nav {
+      transition: all 0.3s ease;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.25rem;
+      top: 0.5rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--primary);
+    }
+
+    .timeline-item.current::before {
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+    }
+
+    body.dark-mode .timeline-item.current::before {
+      box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .accent-line {
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 0;
+      }
+    }
+
+    .profile-image {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Carousel Styles */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .carousel-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .carousel-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 2rem;
+      color: white;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      color: #1f2937;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    body.dark-mode .carousel-nav {
+      background: rgba(55, 65, 81, 0.9);
+      color: white;
+    }
+
+    .carousel-nav:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+      left: 1rem;
+    }
+
+    .carousel-nav.next {
+      right: 1rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary);
+      width: 24px;
+      border-radius: 5px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-image {
+        height: 300px;
+      }
+
+      .carousel-nav {
+        width: 36px;
+        height: 36px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shan Thomas",
+      "url": "https://shanptom.github.io/",
+      "image": "https://shanptom.github.io/assets/photo.png",
+      "jobTitle": "Molecular Biologist",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of Toledo"
+      },
+      "sameAs": [
+        "https://github.com/shanptom",
+        "https://linkedin.com/in/shan-thomas-719756aa",
+        "https://www.researchgate.net/profile/Shan-Thomas/"
+      ]
+    }
+  </script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHNTM7BE72"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NHNTM7BE72');
+</script>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 backdrop-blur-md z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center h-16">
+        <a href="#home" class="font-semibold text-lg">Shan Thomas</a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#publications" class="nav-link">Publications</a>
+          <a href="#contact" class="nav-link">Contact</a>
+
+          <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
+            <i class="fas fa-moon text-sm" id="theme-icon"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <a href="#home" class="block py-2 nav-link">Home</a>
+        <a href="#projects" class="block py-2 nav-link">Projects</a>
+        <a href="#about" class="block py-2 nav-link">About</a>
+        <a href="#experience" class="block py-2 nav-link">Experience</a>
+        <a href="#publications" class="block py-2 nav-link">Publications</a>
+        <a href="#contact" class="block py-2 nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-32 pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-12 items-center">
+        <div class="md:col-span-2 fade-in">
+          <div class="mb-6">
+            <span class="mono text-sm tracking-wide" style="color: var(--text-light);">MOLECULAR BIOLOGIST / NGS SPECIALIST</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Shan Thomas
+          </h1>
+          <div class="accent-line mb-6"></div>
+          <p class="text-xl mb-8 leading-relaxed max-w-2xl" style="color: var(--text-light);">
+            Bridging laboratory expertise with computational analysis. Specializing in Next-Generation
+            Sequencing workflows, microbial ecology, and high-performance data analysis.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-envelope"></i>
+              Get in Touch
+            </a>
+            <a href="#projects" class="btn btn-outline">
+              <i class="fas fa-flask"></i>
+              View Projects
+            </a>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="https://github.com/shanptom" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://linkedin.com/in/shanptom" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
+              <i class="fab fa-researchgate text-xl"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="hover:text-primary transition-colors" style="color: var(--text-light);">
+              <i class="fab fa-google text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <img src="assets/photo.png" alt="Shan Thomas" class="profile-image w-full" width="400" height="400">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-in" style="animation-delay: 0.4s;">
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">PhD</span>
+          <span class="stat-label">In Progress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section - Now First -->
+  <section id="projects" style="background: var(--bg-secondary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+        <div class="accent-line"></div>
+        <p class="mt-4" style="color: var(--text-light);">Computational tools and analysis pipelines for NGS and microbiome research</p>
+      </div>
+
+      <!-- Carousel -->
+      <div class="fade-in" style="animation-delay: 0.1s;">
+        <div class="carousel">
+          <div class="carousel-container" id="carousel-container">
+            <!-- Slide 1: Microbiome Dashboard -->
+            <div class="carousel-slide">
+              <img src="assets/MicrobeStudio.png" alt="Microbiome Dashboard" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">Microbiome Dashboard</h3>
+                <p class="mb-3">Interactive R Shiny application for exploring diversity, ordination, and taxa distribution from metabarcoding data.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Shiny</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Visualization</span>
+                </div>
+                <a href="https://shanptom.shinyapps.io/MicrobeStudio/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2: CodeSparkR -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/9333ea/ffffff?text=CodeSparkR" alt="CodeSparkR" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">CodeSparkR</h3>
+                <p class="mb-3">R package connecting console to 400+ LLMs via OpenRouter for AI-powered coding assistance.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">API</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">AI</span>
+                </div>
+                <a href="https://github.com/shanptom/CodeSparkR/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3: ProtoCart -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/06b6d4/ffffff?text=ProtoCart" alt="ProtoCart" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">ProtoCart</h3>
+                <p class="mb-3">Smart lab assistant that extracts materials from experimental protocols and builds vendor-linked shopping lists.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Python</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Streamlit</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">NLP</span>
+                </div>
+                <a href="https://protocart.streamlit.app/" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 4: AWS Cloud -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/1200x400/ec4899/ffffff?text=AWS+Cloud+Infrastructure" alt="AWS Cloud" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">AWS Cloud Infrastructure</h3>
+                <p class="mb-3">Metabarcoding database implementation using AWS EC2, S3, and IAM services for scalable bioinformatics workflows.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">AWS</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Cloud</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Database</span>
+                </div>
+                <a href="https://github.com/shanptom/AWS_trial" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 5: GBIF Dashboard -->
+            <div class="carousel-slide">
+              <img src="assets/PolishGBIF.png" alt="Dashboard" class="carousel-image">
+              <div class="carousel-content">
+                <h3 class="text-2xl font-bold mb-2">Biodiversity Dashboard</h3>
+                <p class="mb-3">Cloud-hosted biodiversity data explorer using R Shiny, Docker, and Google Cloud Run.</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">R</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">Docker</span>
+                  <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">GCP</span>
+                </div>
+                <a href="https://bioexpo-870918170044.us-central1.run.app" target="_blank" class="text-white hover:underline">
+                  View Project <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="carousel-nav prev" id="carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav next" id="carousel-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+
+      <!-- Additional Projects Grid -->
+      <div class="mt-16 fade-in" style="animation-delay: 0.2s;">
+        <h3 class="text-2xl font-semibold mb-6">Additional Projects</h3>
+        <div class="project-grid">
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://spanbauerlab.github.io/Metabarcoding/" target="_blank">
+                Metabarcoding Guide <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Comprehensive tutorial for processing metabarcoding datasets on HPC systems.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Documentation</span>
+              <span class="tag">Tutorial</span>
+              <span class="tag">HPC</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://shanptom.github.io/mdZotero/" target="_blank">
+                Markdown & Zotero <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Workflow for scientific writing using Markdown with Zotero integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Documentation</span>
+              <span class="tag">Writing</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-2">
+              <a href="https://shanptom.github.io/GitIntro/" target="_blank">
+                Git & GitHub Guide <i class="fas fa-external-link-alt text-xs"></i>
+              </a>
+            </h4>
+            <p class="text-sm mb-3" style="color: var(--text-light);">Beginner's guide to version control with Git and GitHub for research.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Tutorial</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Expertise</h2>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in" style="animation-delay: 0.1s;">
+          <div class="card mb-6">
+            <h3 class="text-xl font-semibold mb-4">Core Competencies</h3>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-light);">
+              With comprehensive experience spanning the complete NGS workflow—from library preparation
+              and sequencing (Illumina, Nanopore) to bioinformatic analysis using HPC systems—I bring
+              a methodical, detail-oriented approach to molecular biology challenges.
+            </p>
+            <p class="leading-relaxed" style="color: var(--text-light);">
+              My work focuses on generating accurate, reproducible insights from complex biological data,
+              whether optimizing laboratory protocols or developing computational pipelines.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">NGS Library Preparation</span>
+                  <span class="text-sm" style="color: var(--text-light);">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">DNA/RNA Extraction</span>
+                  <span class="text-sm" style="color: var(--text-light);">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 100%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">R Programming & Analysis</span>
+                  <span class="text-sm" style="color: var(--text-light);">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">QIIME2 / DADA2</span>
+                  <span class="text-sm" style="color: var(--text-light);">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-sm">HPC / SLURM</span>
+                  <span class="text-sm" style="color: var(--text-light);">Proficient</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 fade-in" style="animation-delay: 0.2s;">
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-dna text-xl" style="color: var(--primary);"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Next-Generation Sequencing</h4>
+                <p class="text-sm" style="color: var(--text-light);">End-to-end NGS workflows including library prep, sequencing operations, and quality control for Illumina and Nanopore platforms.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-bacteria text-xl" style="color: var(--primary);"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Microbial Ecology</h4>
+                <p class="text-sm" style="color: var(--text-light);">Metabarcoding and microbiome analysis using 16S rRNA sequencing, with expertise in ancient DNA and environmental samples.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-chart-line text-xl" style="color: var(--primary);"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Data Analysis</h4>
+                <p class="text-sm" style="color: var(--text-light);">Statistical analysis and visualization using R, Python, and specialized bioinformatics tools on high-performance computing systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--bg-secondary);">
+                <i class="fas fa-cogs text-xl" style="color: var(--primary);"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Workflow Development</h4>
+                <p class="text-sm" style="color: var(--text-light);">Design and optimization of laboratory protocols and computational pipelines for reproducible, high-throughput analysis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="font-semibold mb-3">Technologies</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Illumina</span>
+              <span class="tag">Nanopore</span>
+              <span class="tag">QIIME2</span>
+              <span class="tag">DADA2</span>
+              <span class="tag">R/Shiny</span>
+              <span class="tag">Python</span>
+              <span class="tag">SLURM</span>
+              <span class="tag">HPC</span>
+              <span class="tag">Git</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" style="background: var(--bg-secondary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Experience</h2>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="timeline fade-in" style="animation-delay: 0.1s;">
+        <div class="timeline-item current">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2022 – PRESENT</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">PhD in Biology</h3>
+          <p class="mb-1" style="color: var(--text-light);">University of Toledo</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Ohio, USA</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Microbial ecology research using metabarcoding and machine learning approaches</li>
+            <li>High-performance computing workflows using SLURM scheduling systems</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2020 – 2021</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Technical Sales Specialist</h3>
+          <p class="mb-1" style="color: var(--text-light);">Specialized Scientific Solutions</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Riyadh, Saudi Arabia (Remote)</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Provided technical consultation for MGI and Illumina NGS platforms</li>
+            <li>End-user training and workflow optimization support</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2020</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Assistant Manager, Molecular Biology</h3>
+          <p class="mb-1" style="color: var(--text-light);">LifeCell International</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Chennai, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Laboratory management and team coordination</li>
+            <li>Amplicon, WES, and WGS library preparation workflows</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2017 – 2020</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Research Associate</h3>
+          <p class="mb-1" style="color: var(--text-light);">MedGenome Labs</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Bangalore, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Sanger and NGS sequencing operations</li>
+            <li>Illumina instrument maintenance and troubleshooting</li>
+            <li>LIMS management and workflow optimization</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2015 – 2017</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Researcher</h3>
+          <p class="mb-1" style="color: var(--text-light);">Geobiotechnology Lab</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">Trichy, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Soil microbial ecology and ancient DNA metabarcoding</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="mb-1">
+            <span class="mono text-xs" style="color: var(--text-light);">2013 – 2015</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Senior Research Fellow</h3>
+          <p class="mb-1" style="color: var(--text-light);">Indian Agricultural Research Institute – ITCC</p>
+          <p class="text-sm mb-3" style="color: var(--text-light);">New Delhi, India</p>
+          <ul class="list-disc list-inside space-y-1 text-sm" style="color: var(--text-light);">
+            <li>Microbiome analysis and fungal molecular taxonomy</li>
+            <li>Entomology metabarcoding projects</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Publications</h2>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="space-y-4 fade-in" style="animation-delay: 0.1s;">
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Krishnan, S., et al. (2018).
+            <em>Metabarcoding of PalEnDNA as an efficient tool to recover ancient bacterial diversity.</em>
+            Geomicrobiology Journal, 35(9), 798–803.
+            <a href="https://doi.org/10.1080/01490451.2018.1474507" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            <strong>Thomas, S. P.</strong>, Shanmuganathan, B., Jaiswal, M. K., et al. (2019).
+            <em>Legacy of a Pleistocene bacterial community: Patterns in community dynamics through changing ecosystems.</em>
+            Microbiological Research, 226, 65–73.
+            <a href="https://doi.org/10.1016/j.micres.2019.06.001" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="text-sm leading-relaxed">
+            Stetten, L., Boyanov, M. I., O'Loughlin, E. J., <strong>Thomas, S. P.</strong>, et al. (2025).
+            <em>Biogeochemical controls on iron speciation and cycling across upland to shoreline gradients in freshwater and estuarine coastal soils.</em>
+            Science of The Total Environment.
+            <a href="https://www.sciencedirect.com/science/article/pii/S0048969725015190" target="_blank" class="ml-2">
+              <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </p>
+        </div>
+
+        <div class="mt-6">
+          <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="btn btn-outline">
+            <i class="fab fa-google"></i>
+            View All Publications
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background: var(--bg-secondary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-4">Contact</h2>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in" style="animation-delay: 0.1s;">
+          <div class="card mb-6">
+            <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+            <p class="mb-4 leading-relaxed" style="color: var(--text-light);">
+              I am actively seeking opportunities as a Field Application Scientist or in Technical Support
+              within the Next-Generation Sequencing sector. If you have an opening or would like to explore
+              how I can contribute to your team, please reach out.
+            </p>
+            <p class="leading-relaxed" style="color: var(--text-light);">
+              I also offer professional NGS data analysis services and hands-on R workshops tailored
+              to research labs, academic institutions, or individual learning goals.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4 class="font-semibold mb-4">Connect</h4>
+            <div class="space-y-3">
+              <a href="https://github.com/shanptom" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
+                <i class="fab fa-github w-5"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/shanptom" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
+                <i class="fab fa-linkedin w-5"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://www.researchgate.net/profile/Shan-Thomas/" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
+                <i class="fab fa-researchgate w-5"></i>
+                <span>ResearchGate</span>
+              </a>
+              <a href="https://scholar.google.com/citations?user=9EsIZrgAAAAJ&hl=en&authuser=1" target="_blank" class="flex items-center gap-3 transition-colors" style="color: var(--text-light);">
+                <i class="fab fa-google w-5"></i>
+                <span>Google Scholar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+            <form action="https://formspree.io/f/xblygkvj" method="POST" class="space-y-4">
+              <div>
+                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:border-transparent"
+                  style="border: 1px solid var(--border); background: var(--bg); color: var(--text);"
+                  placeholder="your@email.com"
+                >
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  class="w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                  style="border: 1px solid var(--border); background: var(--bg); color: var(--text);"
+                  placeholder="Your message..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-full">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 mt-20" style="border-top: 1px solid var(--border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style="color: var(--text-light);">
+        <p>&copy; 2025 Shan Thomas. All rights reserved.</p>
+        <p>
+          Designed by <a href="https://cline.bot/" target="_blank">Cline</a>
+        </p>
+        <a href="old_version/index.html">Previous Version</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Carousel functionality
+    const carouselContainer = document.getElementById('carousel-container');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function updateCarousel() {
+      carouselContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto-advance carousel
+    setInterval(nextSlide, 5000);
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Fade in on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
